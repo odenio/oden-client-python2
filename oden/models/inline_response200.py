@@ -34,45 +34,71 @@ class InlineResponse200(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'interval_ids': 'list[str]'
+        'num_deleted': 'int',
+        'failed_intervals': 'list[str]'
     }
 
     attribute_map = {
-        'interval_ids': 'interval_ids'
+        'num_deleted': 'num_deleted',
+        'failed_intervals': 'failed_intervals'
     }
 
-    def __init__(self, interval_ids=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, num_deleted=None, failed_intervals=None, local_vars_configuration=None):  # noqa: E501
         """InlineResponse200 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._interval_ids = None
+        self._num_deleted = None
+        self._failed_intervals = None
         self.discriminator = None
 
-        if interval_ids is not None:
-            self.interval_ids = interval_ids
+        if num_deleted is not None:
+            self.num_deleted = num_deleted
+        if failed_intervals is not None:
+            self.failed_intervals = failed_intervals
 
     @property
-    def interval_ids(self):
-        """Gets the interval_ids of this InlineResponse200.  # noqa: E501
+    def num_deleted(self):
+        """Gets the num_deleted of this InlineResponse200.  # noqa: E501
 
 
-        :return: The interval_ids of this InlineResponse200.  # noqa: E501
+        :return: The num_deleted of this InlineResponse200.  # noqa: E501
+        :rtype: int
+        """
+        return self._num_deleted
+
+    @num_deleted.setter
+    def num_deleted(self, num_deleted):
+        """Sets the num_deleted of this InlineResponse200.
+
+
+        :param num_deleted: The num_deleted of this InlineResponse200.  # noqa: E501
+        :type: int
+        """
+
+        self._num_deleted = num_deleted
+
+    @property
+    def failed_intervals(self):
+        """Gets the failed_intervals of this InlineResponse200.  # noqa: E501
+
+
+        :return: The failed_intervals of this InlineResponse200.  # noqa: E501
         :rtype: list[str]
         """
-        return self._interval_ids
+        return self._failed_intervals
 
-    @interval_ids.setter
-    def interval_ids(self, interval_ids):
-        """Sets the interval_ids of this InlineResponse200.
+    @failed_intervals.setter
+    def failed_intervals(self, failed_intervals):
+        """Sets the failed_intervals of this InlineResponse200.
 
 
-        :param interval_ids: The interval_ids of this InlineResponse200.  # noqa: E501
+        :param failed_intervals: The failed_intervals of this InlineResponse200.  # noqa: E501
         :type: list[str]
         """
 
-        self._interval_ids = interval_ids
+        self._failed_intervals = failed_intervals
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -23,7 +23,6 @@ from oden.models.inline_object1 import InlineObject1
 from oden.models.inline_object2 import InlineObject2
 from oden.models.inline_object3 import InlineObject3
 from oden.models.inline_response200 import InlineResponse200
-from oden.models.inline_response2001 import InlineResponse2001
 from oden.models.inline_response400 import InlineResponse400
 from oden.models.inline_response409 import InlineResponse409
 from oden.models.inline_response500 import InlineResponse500

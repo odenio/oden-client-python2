@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v2_intervals_delete_post**
-> InlineResponse2001 v2_intervals_delete_post(interval_bulk_delete)
+> InlineResponse200 v2_intervals_delete_post(interval_bulk_delete)
 
 
 
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -425,7 +425,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v2_intervals_set_post**
-> InlineResponse200 v2_intervals_set_post(interval_bulk_create)
+> list[str] v2_intervals_set_post(interval_bulk_create)
 
 
 
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+**list[str]**
 
 ### Authorization
 
@@ -496,7 +496,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A list containing any intervals found but not created. |  -  |
+**200** | A list of created interval IDs. |  -  |
 **400** | An error occurred regarding one of the input parameters |  -  |
 **401** | User has provided either no credentials or invalid credentials |  -  |
 **403** | User has provided valid credentials but is not authorized to access the entity  |  -  |

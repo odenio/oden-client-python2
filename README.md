@@ -227,7 +227,6 @@ Class | Method | HTTP request | Description
  - [InlineObject2](docs/InlineObject2.md)
  - [InlineObject3](docs/InlineObject3.md)
  - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse400](docs/InlineResponse400.md)
  - [InlineResponse409](docs/InlineResponse409.md)
  - [InlineResponse500](docs/InlineResponse500.md)
