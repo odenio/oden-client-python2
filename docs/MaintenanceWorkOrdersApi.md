@@ -4,15 +4,15 @@ All URIs are relative to *https://api.oden.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v2_maintenance_work_order_delete_post**](MaintenanceWorkOrdersApi.md#v2_maintenance_work_order_delete_post) | **POST** /v2/maintenance_work_order/delete | 
-[**v2_maintenance_work_order_search_post**](MaintenanceWorkOrdersApi.md#v2_maintenance_work_order_search_post) | **POST** /v2/maintenance_work_order/search | 
-[**v2_maintenance_work_order_set_post**](MaintenanceWorkOrdersApi.md#v2_maintenance_work_order_set_post) | **POST** /v2/maintenance_work_order/set | 
+[**delete_maintenance_work_order**](MaintenanceWorkOrdersApi.md#delete_maintenance_work_order) | **POST** /v2/maintenance_work_order/delete | Delete a maintenance work order
+[**search_maintenance_work_orders**](MaintenanceWorkOrdersApi.md#search_maintenance_work_orders) | **POST** /v2/maintenance_work_order/search | Search maintenance work orders
+[**set_maintenance_work_order**](MaintenanceWorkOrdersApi.md#set_maintenance_work_order) | **POST** /v2/maintenance_work_order/set | Create or update a maintenance work order
 
 
-# **v2_maintenance_work_order_delete_post**
-> list[MaintenanceWorkOrder] v2_maintenance_work_order_delete_post(maintenance_work_order)
+# **delete_maintenance_work_order**
+> list[MaintenanceWorkOrder] delete_maintenance_work_order(maintenance_work_order)
 
-
+Delete a maintenance work order
 
 Delete a Maintenance Work Order by unique identifier: - `id` OR `external_id` - `match: unique` or omit (only unique is supported) 
 
@@ -53,10 +53,11 @@ with oden.ApiClient(configuration) as api_client:
     maintenance_work_order = {"id":"0012ab4d-1234-123a-8c76-6ea2344be6df"} # MaintenanceWorkOrder | 
 
     try:
-        api_response = api_instance.v2_maintenance_work_order_delete_post(maintenance_work_order)
+        # Delete a maintenance work order
+        api_response = api_instance.delete_maintenance_work_order(maintenance_work_order)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling MaintenanceWorkOrdersApi->v2_maintenance_work_order_delete_post: %s\n" % e)
+        print("Exception when calling MaintenanceWorkOrdersApi->delete_maintenance_work_order: %s\n" % e)
 ```
 
 ### Parameters
@@ -92,10 +93,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v2_maintenance_work_order_search_post**
-> list[MaintenanceWorkOrder] v2_maintenance_work_order_search_post(inline_object4)
+# **search_maintenance_work_orders**
+> list[MaintenanceWorkOrder] search_maintenance_work_orders(inline_object4)
 
-
+Search maintenance work orders
 
 Search for Maintenance Work Orders by: - `id` - `external_id` - `line_id` with required `start_time` and `end_time` filters 
 
@@ -136,10 +137,11 @@ with oden.ApiClient(configuration) as api_client:
     inline_object4 = oden.InlineObject4() # InlineObject4 | 
 
     try:
-        api_response = api_instance.v2_maintenance_work_order_search_post(inline_object4)
+        # Search maintenance work orders
+        api_response = api_instance.search_maintenance_work_orders(inline_object4)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling MaintenanceWorkOrdersApi->v2_maintenance_work_order_search_post: %s\n" % e)
+        print("Exception when calling MaintenanceWorkOrdersApi->search_maintenance_work_orders: %s\n" % e)
 ```
 
 ### Parameters
@@ -175,10 +177,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v2_maintenance_work_order_set_post**
-> MaintenanceWorkOrder v2_maintenance_work_order_set_post(maintenance_work_order)
+# **set_maintenance_work_order**
+> MaintenanceWorkOrder set_maintenance_work_order(maintenance_work_order)
 
-
+Create or update a maintenance work order
 
 Create or update a Maintenance Work Order.  To **create** a new Maintenance Work Order: - Include `name` and `line`, `external_id`, `started_at` (required) - Omit `id` field - include `completed_at`, `description`, `metadata`  To **update** an existing Maintenance Work Order: - Include the `id` of the existing work order - Include any fields to update  NOTE: Any fields not included in an update request will be left unchanged. 
 
@@ -219,10 +221,11 @@ with oden.ApiClient(configuration) as api_client:
     maintenance_work_order = {"name":"Scheduled Maintenance Q1","line":{"id":"0012ab4d-1234-123a-8c76-6ea2344be6df"},"description":"Quarterly scheduled maintenance","external_id":"MWO-2024-001","started_at":"2024-01-15T08:00:00Z","completed_at":"2024-01-15T17:00:00Z","metadata":"{\"technician\": \"John Doe\", \"priority\": \"high\"}"} # MaintenanceWorkOrder | 
 
     try:
-        api_response = api_instance.v2_maintenance_work_order_set_post(maintenance_work_order)
+        # Create or update a maintenance work order
+        api_response = api_instance.set_maintenance_work_order(maintenance_work_order)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling MaintenanceWorkOrdersApi->v2_maintenance_work_order_set_post: %s\n" % e)
+        print("Exception when calling MaintenanceWorkOrdersApi->set_maintenance_work_order: %s\n" % e)
 ```
 
 ### Parameters

@@ -37,13 +37,13 @@ class ProductMappingsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v2_product_mapping_search_post(self, product_mapping, **kwargs):  # noqa: E501
-        """v2_product_mapping_search_post  # noqa: E501
+    def search_product_mappings(self, product_mapping, **kwargs):  # noqa: E501
+        """Search product-to-line mappings  # noqa: E501
 
         Searches for Product Mappings.  May be used to confirm a Product Mapping exists.  Much like `product/search`, may be used to get `name`s of line or product from `id`s, or `id`s from `name`s.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_mapping_search_post(product_mapping, async_req=True)
+        >>> thread = api.search_product_mappings(product_mapping, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -60,15 +60,15 @@ class ProductMappingsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_product_mapping_search_post_with_http_info(product_mapping, **kwargs)  # noqa: E501
+        return self.search_product_mappings_with_http_info(product_mapping, **kwargs)  # noqa: E501
 
-    def v2_product_mapping_search_post_with_http_info(self, product_mapping, **kwargs):  # noqa: E501
-        """v2_product_mapping_search_post  # noqa: E501
+    def search_product_mappings_with_http_info(self, product_mapping, **kwargs):  # noqa: E501
+        """Search product-to-line mappings  # noqa: E501
 
         Searches for Product Mappings.  May be used to confirm a Product Mapping exists.  Much like `product/search`, may be used to get `name`s of line or product from `id`s, or `id`s from `name`s.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_mapping_search_post_with_http_info(product_mapping, async_req=True)
+        >>> thread = api.search_product_mappings_with_http_info(product_mapping, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -105,14 +105,14 @@ class ProductMappingsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_product_mapping_search_post" % key
+                    " to method search_product_mappings" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'product_mapping' is set
         if self.api_client.client_side_validation and ('product_mapping' not in local_var_params or  # noqa: E501
                                                         local_var_params['product_mapping'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `product_mapping` when calling `v2_product_mapping_search_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `product_mapping` when calling `search_product_mappings`")  # noqa: E501
 
         collection_formats = {}
 
@@ -155,13 +155,13 @@ class ProductMappingsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_product_mapping_set_post(self, product_mapping, **kwargs):  # noqa: E501
-        """v2_product_mapping_set_post  # noqa: E501
+    def set_product_mapping(self, product_mapping, **kwargs):  # noqa: E501
+        """Map a product to a line  # noqa: E501
 
         Map a Product to a Line - implying this Line can produce, or is producing this Product.  If the supplied Product doesn't exist, it will be created.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_mapping_set_post(product_mapping, async_req=True)
+        >>> thread = api.set_product_mapping(product_mapping, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -178,15 +178,15 @@ class ProductMappingsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_product_mapping_set_post_with_http_info(product_mapping, **kwargs)  # noqa: E501
+        return self.set_product_mapping_with_http_info(product_mapping, **kwargs)  # noqa: E501
 
-    def v2_product_mapping_set_post_with_http_info(self, product_mapping, **kwargs):  # noqa: E501
-        """v2_product_mapping_set_post  # noqa: E501
+    def set_product_mapping_with_http_info(self, product_mapping, **kwargs):  # noqa: E501
+        """Map a product to a line  # noqa: E501
 
         Map a Product to a Line - implying this Line can produce, or is producing this Product.  If the supplied Product doesn't exist, it will be created.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_mapping_set_post_with_http_info(product_mapping, async_req=True)
+        >>> thread = api.set_product_mapping_with_http_info(product_mapping, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -223,14 +223,14 @@ class ProductMappingsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_product_mapping_set_post" % key
+                    " to method set_product_mapping" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'product_mapping' is set
         if self.api_client.client_side_validation and ('product_mapping' not in local_var_params or  # noqa: E501
                                                         local_var_params['product_mapping'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `product_mapping` when calling `v2_product_mapping_set_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `product_mapping` when calling `set_product_mapping`")  # noqa: E501
 
         collection_formats = {}
 

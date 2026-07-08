@@ -37,13 +37,13 @@ class ProductAttributesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v2_product_attribute_search_post(self, product_attribute, **kwargs):  # noqa: E501
-        """v2_product_attribute_search_post  # noqa: E501
+    def search_product_attributes(self, product_attribute, **kwargs):  # noqa: E501
+        """Search product attributes  # noqa: E501
 
         Searches for Product Attributes  Product attributes may be searched by ID, product, or, display_name - in that order.  If an ID is supplied, it will be used to search for a Product Attribute, and display_name, product will be ignored.  If a product is supplied (and no ID), it will be used to search for a Product Attribute, and display_name will be ignored.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_attribute_search_post(product_attribute, async_req=True)
+        >>> thread = api.search_product_attributes(product_attribute, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -60,15 +60,15 @@ class ProductAttributesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_product_attribute_search_post_with_http_info(product_attribute, **kwargs)  # noqa: E501
+        return self.search_product_attributes_with_http_info(product_attribute, **kwargs)  # noqa: E501
 
-    def v2_product_attribute_search_post_with_http_info(self, product_attribute, **kwargs):  # noqa: E501
-        """v2_product_attribute_search_post  # noqa: E501
+    def search_product_attributes_with_http_info(self, product_attribute, **kwargs):  # noqa: E501
+        """Search product attributes  # noqa: E501
 
         Searches for Product Attributes  Product attributes may be searched by ID, product, or, display_name - in that order.  If an ID is supplied, it will be used to search for a Product Attribute, and display_name, product will be ignored.  If a product is supplied (and no ID), it will be used to search for a Product Attribute, and display_name will be ignored.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_attribute_search_post_with_http_info(product_attribute, async_req=True)
+        >>> thread = api.search_product_attributes_with_http_info(product_attribute, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -105,14 +105,14 @@ class ProductAttributesApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_product_attribute_search_post" % key
+                    " to method search_product_attributes" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'product_attribute' is set
         if self.api_client.client_side_validation and ('product_attribute' not in local_var_params or  # noqa: E501
                                                         local_var_params['product_attribute'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `product_attribute` when calling `v2_product_attribute_search_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `product_attribute` when calling `search_product_attributes`")  # noqa: E501
 
         collection_formats = {}
 
@@ -155,13 +155,13 @@ class ProductAttributesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_product_attribute_set_post(self, product_attribute, **kwargs):  # noqa: E501
-        """v2_product_attribute_set_post  # noqa: E501
+    def set_product_attribute(self, product_attribute, **kwargs):  # noqa: E501
+        """Create or update a product attribute  # noqa: E501
 
         Set a Product Attribute for a Product.  If the supplied Product Attribute doesn't exist, it will be created.  If the supplied Product Attribute Value doesn't exist, it will be created.  If the supplied Product Attribute Value is already set for the Product, it will be updated.  If the supplied Product Attribute Value is not set for the Product, it will be added.  Supplied Product must exist already.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_attribute_set_post(product_attribute, async_req=True)
+        >>> thread = api.set_product_attribute(product_attribute, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -178,15 +178,15 @@ class ProductAttributesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_product_attribute_set_post_with_http_info(product_attribute, **kwargs)  # noqa: E501
+        return self.set_product_attribute_with_http_info(product_attribute, **kwargs)  # noqa: E501
 
-    def v2_product_attribute_set_post_with_http_info(self, product_attribute, **kwargs):  # noqa: E501
-        """v2_product_attribute_set_post  # noqa: E501
+    def set_product_attribute_with_http_info(self, product_attribute, **kwargs):  # noqa: E501
+        """Create or update a product attribute  # noqa: E501
 
         Set a Product Attribute for a Product.  If the supplied Product Attribute doesn't exist, it will be created.  If the supplied Product Attribute Value doesn't exist, it will be created.  If the supplied Product Attribute Value is already set for the Product, it will be updated.  If the supplied Product Attribute Value is not set for the Product, it will be added.  Supplied Product must exist already.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_attribute_set_post_with_http_info(product_attribute, async_req=True)
+        >>> thread = api.set_product_attribute_with_http_info(product_attribute, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -223,14 +223,14 @@ class ProductAttributesApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_product_attribute_set_post" % key
+                    " to method set_product_attribute" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'product_attribute' is set
         if self.api_client.client_side_validation and ('product_attribute' not in local_var_params or  # noqa: E501
                                                         local_var_params['product_attribute'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `product_attribute` when calling `v2_product_attribute_set_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `product_attribute` when calling `set_product_attribute`")  # noqa: E501
 
         collection_formats = {}
 

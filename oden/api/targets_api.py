@@ -37,13 +37,13 @@ class TargetsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v2_target_search_post(self, target, **kwargs):  # noqa: E501
-        """v2_target_search_post  # noqa: E501
+    def search_targets(self, target, **kwargs):  # noqa: E501
+        """Search metric targets  # noqa: E501
 
         Search for a Target by `line`, `metric_group`, and `product`. For each of these inputs, any of their unique indentifiers (as described in their `search` endpoint) may be used. See examples.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_target_search_post(target, async_req=True)
+        >>> thread = api.search_targets(target, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -60,15 +60,15 @@ class TargetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_target_search_post_with_http_info(target, **kwargs)  # noqa: E501
+        return self.search_targets_with_http_info(target, **kwargs)  # noqa: E501
 
-    def v2_target_search_post_with_http_info(self, target, **kwargs):  # noqa: E501
-        """v2_target_search_post  # noqa: E501
+    def search_targets_with_http_info(self, target, **kwargs):  # noqa: E501
+        """Search metric targets  # noqa: E501
 
         Search for a Target by `line`, `metric_group`, and `product`. For each of these inputs, any of their unique indentifiers (as described in their `search` endpoint) may be used. See examples.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_target_search_post_with_http_info(target, async_req=True)
+        >>> thread = api.search_targets_with_http_info(target, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -105,14 +105,14 @@ class TargetsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_target_search_post" % key
+                    " to method search_targets" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'target' is set
         if self.api_client.client_side_validation and ('target' not in local_var_params or  # noqa: E501
                                                         local_var_params['target'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `target` when calling `v2_target_search_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `target` when calling `search_targets`")  # noqa: E501
 
         collection_formats = {}
 
@@ -155,13 +155,13 @@ class TargetsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_target_set_post(self, target, **kwargs):  # noqa: E501
-        """v2_target_set_post  # noqa: E501
+    def set_target(self, target, **kwargs):  # noqa: E501
+        """Create or update a metric target  # noqa: E501
 
         Create or update a Target.  First the endpoint will search for a Target by `metric_group`, `product`, and `line`: - If the target does not exist a new target is created. - If the product or its mapping to the given line does not exist, they will be created. - If a target exists but with different parameters, it will be updated. - If the target exists with all the same parameters nothing is done.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_target_set_post(target, async_req=True)
+        >>> thread = api.set_target(target, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -178,15 +178,15 @@ class TargetsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_target_set_post_with_http_info(target, **kwargs)  # noqa: E501
+        return self.set_target_with_http_info(target, **kwargs)  # noqa: E501
 
-    def v2_target_set_post_with_http_info(self, target, **kwargs):  # noqa: E501
-        """v2_target_set_post  # noqa: E501
+    def set_target_with_http_info(self, target, **kwargs):  # noqa: E501
+        """Create or update a metric target  # noqa: E501
 
         Create or update a Target.  First the endpoint will search for a Target by `metric_group`, `product`, and `line`: - If the target does not exist a new target is created. - If the product or its mapping to the given line does not exist, they will be created. - If a target exists but with different parameters, it will be updated. - If the target exists with all the same parameters nothing is done.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_target_set_post_with_http_info(target, async_req=True)
+        >>> thread = api.set_target_with_http_info(target, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -223,14 +223,14 @@ class TargetsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_target_set_post" % key
+                    " to method set_target" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'target' is set
         if self.api_client.client_side_validation and ('target' not in local_var_params or  # noqa: E501
                                                         local_var_params['target'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `target` when calling `v2_target_set_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `target` when calling `set_target`")  # noqa: E501
 
         collection_formats = {}
 

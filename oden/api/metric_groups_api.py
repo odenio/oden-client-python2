@@ -37,13 +37,13 @@ class MetricGroupsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v2_metric_group_search_post(self, metric_group, **kwargs):  # noqa: E501
-        """v2_metric_group_search_post  # noqa: E501
+    def search_metric_groups(self, metric_group, **kwargs):  # noqa: E501
+        """Search metric groups  # noqa: E501
 
         Search for a specific Metric Group:  - `name` - `match: unique` or omit  OR  - `id` - `match: unique` or omit  Search for all Metric Groups: - `match: all`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_metric_group_search_post(metric_group, async_req=True)
+        >>> thread = api.search_metric_groups(metric_group, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -60,15 +60,15 @@ class MetricGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_metric_group_search_post_with_http_info(metric_group, **kwargs)  # noqa: E501
+        return self.search_metric_groups_with_http_info(metric_group, **kwargs)  # noqa: E501
 
-    def v2_metric_group_search_post_with_http_info(self, metric_group, **kwargs):  # noqa: E501
-        """v2_metric_group_search_post  # noqa: E501
+    def search_metric_groups_with_http_info(self, metric_group, **kwargs):  # noqa: E501
+        """Search metric groups  # noqa: E501
 
         Search for a specific Metric Group:  - `name` - `match: unique` or omit  OR  - `id` - `match: unique` or omit  Search for all Metric Groups: - `match: all`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_metric_group_search_post_with_http_info(metric_group, async_req=True)
+        >>> thread = api.search_metric_groups_with_http_info(metric_group, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -105,14 +105,14 @@ class MetricGroupsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_metric_group_search_post" % key
+                    " to method search_metric_groups" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'metric_group' is set
         if self.api_client.client_side_validation and ('metric_group' not in local_var_params or  # noqa: E501
                                                         local_var_params['metric_group'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `metric_group` when calling `v2_metric_group_search_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `metric_group` when calling `search_metric_groups`")  # noqa: E501
 
         collection_formats = {}
 

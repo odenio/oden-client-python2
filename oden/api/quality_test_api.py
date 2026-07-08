@@ -37,17 +37,17 @@ class QualityTestApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v2_quality_schema_search_post(self, quality_schema, **kwargs):  # noqa: E501
-        """v2_quality_schema_search_post  # noqa: E501
+    def bulk_delete_quality_tests(self, inline_object3, **kwargs):  # noqa: E501
+        """Delete multiple quality tests  # noqa: E501
 
-        Searches for Quality Schema[s] by:  - `factory`   # noqa: E501
+        Bulk deletes quality tests, either: - All quality tests on a given `line` whose `timsetamp` is between `start_time` and `end_time` OR - All quality tests whose `id` is supplied  It will do one or the other, with a bias for `id`'s if both are supplied.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_quality_schema_search_post(quality_schema, async_req=True)
+        >>> thread = api.bulk_delete_quality_tests(inline_object3, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param QualitySchema quality_schema: (required)
+        :param InlineObject3 inline_object3: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -60,19 +60,19 @@ class QualityTestApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_quality_schema_search_post_with_http_info(quality_schema, **kwargs)  # noqa: E501
+        return self.bulk_delete_quality_tests_with_http_info(inline_object3, **kwargs)  # noqa: E501
 
-    def v2_quality_schema_search_post_with_http_info(self, quality_schema, **kwargs):  # noqa: E501
-        """v2_quality_schema_search_post  # noqa: E501
+    def bulk_delete_quality_tests_with_http_info(self, inline_object3, **kwargs):  # noqa: E501
+        """Delete multiple quality tests  # noqa: E501
 
-        Searches for Quality Schema[s] by:  - `factory`   # noqa: E501
+        Bulk deletes quality tests, either: - All quality tests on a given `line` whose `timsetamp` is between `start_time` and `end_time` OR - All quality tests whose `id` is supplied  It will do one or the other, with a bias for `id`'s if both are supplied.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_quality_schema_search_post_with_http_info(quality_schema, async_req=True)
+        >>> thread = api.bulk_delete_quality_tests_with_http_info(inline_object3, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param QualitySchema quality_schema: (required)
+        :param InlineObject3 inline_object3: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -90,7 +90,7 @@ class QualityTestApi(object):
         local_var_params = locals()
 
         all_params = [
-            'quality_schema'
+            'inline_object3'
         ]
         all_params.extend(
             [
@@ -105,14 +105,14 @@ class QualityTestApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_quality_schema_search_post" % key
+                    " to method bulk_delete_quality_tests" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'quality_schema' is set
-        if self.api_client.client_side_validation and ('quality_schema' not in local_var_params or  # noqa: E501
-                                                        local_var_params['quality_schema'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `quality_schema` when calling `v2_quality_schema_search_post`")  # noqa: E501
+        # verify the required parameter 'inline_object3' is set
+        if self.api_client.client_side_validation and ('inline_object3' not in local_var_params or  # noqa: E501
+                                                        local_var_params['inline_object3'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object3` when calling `bulk_delete_quality_tests`")  # noqa: E501
 
         collection_formats = {}
 
@@ -126,8 +126,8 @@ class QualityTestApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'quality_schema' in local_var_params:
-            body_params = local_var_params['quality_schema']
+        if 'inline_object3' in local_var_params:
+            body_params = local_var_params['inline_object3']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -140,7 +140,7 @@ class QualityTestApi(object):
         auth_settings = ['APIKeyAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v2/quality_schema/search', 'POST',
+            '/v2/quality_tests/delete', 'POST',
             path_params,
             query_params,
             header_params,
@@ -155,13 +155,13 @@ class QualityTestApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_quality_test_delete_post(self, quality_test, **kwargs):  # noqa: E501
-        """v2_quality_test_delete_post  # noqa: E501
+    def delete_quality_test(self, quality_test, **kwargs):  # noqa: E501
+        """Delete a quality test  # noqa: E501
 
         Searches for uniqueQuality Test by:  - `id`  OR  - `interval` (of type `RUN` or `BATCH`)*  *This only work if there is a single quality test record for the interval.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_quality_test_delete_post(quality_test, async_req=True)
+        >>> thread = api.delete_quality_test(quality_test, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -178,15 +178,15 @@ class QualityTestApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_quality_test_delete_post_with_http_info(quality_test, **kwargs)  # noqa: E501
+        return self.delete_quality_test_with_http_info(quality_test, **kwargs)  # noqa: E501
 
-    def v2_quality_test_delete_post_with_http_info(self, quality_test, **kwargs):  # noqa: E501
-        """v2_quality_test_delete_post  # noqa: E501
+    def delete_quality_test_with_http_info(self, quality_test, **kwargs):  # noqa: E501
+        """Delete a quality test  # noqa: E501
 
         Searches for uniqueQuality Test by:  - `id`  OR  - `interval` (of type `RUN` or `BATCH`)*  *This only work if there is a single quality test record for the interval.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_quality_test_delete_post_with_http_info(quality_test, async_req=True)
+        >>> thread = api.delete_quality_test_with_http_info(quality_test, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -223,14 +223,14 @@ class QualityTestApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_quality_test_delete_post" % key
+                    " to method delete_quality_test" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'quality_test' is set
         if self.api_client.client_side_validation and ('quality_test' not in local_var_params or  # noqa: E501
                                                         local_var_params['quality_test'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `quality_test` when calling `v2_quality_test_delete_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `quality_test` when calling `delete_quality_test`")  # noqa: E501
 
         collection_formats = {}
 
@@ -273,13 +273,131 @@ class QualityTestApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_quality_test_search_post(self, quality_test, **kwargs):  # noqa: E501
-        """v2_quality_test_search_post  # noqa: E501
+    def search_quality_schemas(self, quality_schema, **kwargs):  # noqa: E501
+        """Search quality schemas for a factory  # noqa: E501
+
+        Searches for Quality Schema[s] by:  - `factory`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_quality_schemas(quality_schema, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param QualitySchema quality_schema: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.search_quality_schemas_with_http_info(quality_schema, **kwargs)  # noqa: E501
+
+    def search_quality_schemas_with_http_info(self, quality_schema, **kwargs):  # noqa: E501
+        """Search quality schemas for a factory  # noqa: E501
+
+        Searches for Quality Schema[s] by:  - `factory`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_quality_schemas_with_http_info(quality_schema, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param QualitySchema quality_schema: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'quality_schema'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_quality_schemas" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'quality_schema' is set
+        if self.api_client.client_side_validation and ('quality_schema' not in local_var_params or  # noqa: E501
+                                                        local_var_params['quality_schema'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `quality_schema` when calling `search_quality_schemas`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'quality_schema' in local_var_params:
+            body_params = local_var_params['quality_schema']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['APIKeyAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/quality_schema/search', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_quality_tests(self, quality_test, **kwargs):  # noqa: E501
+        """Search quality tests  # noqa: E501
 
         Searches for Quality Test[s] by:  - `id`  OR  - `interval` (of type `RUN` or `BATCH`)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_quality_test_search_post(quality_test, async_req=True)
+        >>> thread = api.search_quality_tests(quality_test, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -296,15 +414,15 @@ class QualityTestApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_quality_test_search_post_with_http_info(quality_test, **kwargs)  # noqa: E501
+        return self.search_quality_tests_with_http_info(quality_test, **kwargs)  # noqa: E501
 
-    def v2_quality_test_search_post_with_http_info(self, quality_test, **kwargs):  # noqa: E501
-        """v2_quality_test_search_post  # noqa: E501
+    def search_quality_tests_with_http_info(self, quality_test, **kwargs):  # noqa: E501
+        """Search quality tests  # noqa: E501
 
         Searches for Quality Test[s] by:  - `id`  OR  - `interval` (of type `RUN` or `BATCH`)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_quality_test_search_post_with_http_info(quality_test, async_req=True)
+        >>> thread = api.search_quality_tests_with_http_info(quality_test, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -341,14 +459,14 @@ class QualityTestApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_quality_test_search_post" % key
+                    " to method search_quality_tests" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'quality_test' is set
         if self.api_client.client_side_validation and ('quality_test' not in local_var_params or  # noqa: E501
                                                         local_var_params['quality_test'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `quality_test` when calling `v2_quality_test_search_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `quality_test` when calling `search_quality_tests`")  # noqa: E501
 
         collection_formats = {}
 
@@ -391,13 +509,13 @@ class QualityTestApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_quality_test_set_post(self, quality_test, **kwargs):  # noqa: E501
-        """v2_quality_test_set_post  # noqa: E501
+    def set_quality_test(self, quality_test, **kwargs):  # noqa: E501
+        """Create or update a quality test result  # noqa: E501
 
         Create or update a Quality Test record: - To update `id` must be supplied. Only the supplied fields will be updated, the rest will remain unchanged. - If `id` is not supplied, a new `quality_test_record` will be created.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_quality_test_set_post(quality_test, async_req=True)
+        >>> thread = api.set_quality_test(quality_test, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -414,15 +532,15 @@ class QualityTestApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_quality_test_set_post_with_http_info(quality_test, **kwargs)  # noqa: E501
+        return self.set_quality_test_with_http_info(quality_test, **kwargs)  # noqa: E501
 
-    def v2_quality_test_set_post_with_http_info(self, quality_test, **kwargs):  # noqa: E501
-        """v2_quality_test_set_post  # noqa: E501
+    def set_quality_test_with_http_info(self, quality_test, **kwargs):  # noqa: E501
+        """Create or update a quality test result  # noqa: E501
 
         Create or update a Quality Test record: - To update `id` must be supplied. Only the supplied fields will be updated, the rest will remain unchanged. - If `id` is not supplied, a new `quality_test_record` will be created.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_quality_test_set_post_with_http_info(quality_test, async_req=True)
+        >>> thread = api.set_quality_test_with_http_info(quality_test, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -459,14 +577,14 @@ class QualityTestApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_quality_test_set_post" % key
+                    " to method set_quality_test" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'quality_test' is set
         if self.api_client.client_side_validation and ('quality_test' not in local_var_params or  # noqa: E501
                                                         local_var_params['quality_test'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `quality_test` when calling `v2_quality_test_set_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `quality_test` when calling `set_quality_test`")  # noqa: E501
 
         collection_formats = {}
 
@@ -495,124 +613,6 @@ class QualityTestApi(object):
 
         return self.api_client.call_api(
             '/v2/quality_test/set', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v2_quality_tests_delete_post(self, inline_object3, **kwargs):  # noqa: E501
-        """v2_quality_tests_delete_post  # noqa: E501
-
-        Bulk deletes quality tests, either: - All quality tests on a given `line` whose `timsetamp` is between `start_time` and `end_time` OR - All quality tests whose `id` is supplied  It will do one or the other, with a bias for `id`'s if both are supplied.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_quality_tests_delete_post(inline_object3, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param InlineObject3 inline_object3: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v2_quality_tests_delete_post_with_http_info(inline_object3, **kwargs)  # noqa: E501
-
-    def v2_quality_tests_delete_post_with_http_info(self, inline_object3, **kwargs):  # noqa: E501
-        """v2_quality_tests_delete_post  # noqa: E501
-
-        Bulk deletes quality tests, either: - All quality tests on a given `line` whose `timsetamp` is between `start_time` and `end_time` OR - All quality tests whose `id` is supplied  It will do one or the other, with a bias for `id`'s if both are supplied.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_quality_tests_delete_post_with_http_info(inline_object3, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param InlineObject3 inline_object3: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'inline_object3'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v2_quality_tests_delete_post" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'inline_object3' is set
-        if self.api_client.client_side_validation and ('inline_object3' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object3'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object3` when calling `v2_quality_tests_delete_post`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'inline_object3' in local_var_params:
-            body_params = local_var_params['inline_object3']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['APIKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v2/quality_tests/delete', 'POST',
             path_params,
             query_params,
             header_params,

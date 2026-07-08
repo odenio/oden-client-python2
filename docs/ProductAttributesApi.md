@@ -4,14 +4,14 @@ All URIs are relative to *https://api.oden.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v2_product_attribute_search_post**](ProductAttributesApi.md#v2_product_attribute_search_post) | **POST** /v2/product_attribute/search | 
-[**v2_product_attribute_set_post**](ProductAttributesApi.md#v2_product_attribute_set_post) | **POST** /v2/product_attribute/set | 
+[**search_product_attributes**](ProductAttributesApi.md#search_product_attributes) | **POST** /v2/product_attribute/search | Search product attributes
+[**set_product_attribute**](ProductAttributesApi.md#set_product_attribute) | **POST** /v2/product_attribute/set | Create or update a product attribute
 
 
-# **v2_product_attribute_search_post**
-> list[ProductAttribute] v2_product_attribute_search_post(product_attribute)
+# **search_product_attributes**
+> list[ProductAttribute] search_product_attributes(product_attribute)
 
-
+Search product attributes
 
 Searches for Product Attributes  Product attributes may be searched by ID, product, or, display_name - in that order.  If an ID is supplied, it will be used to search for a Product Attribute, and display_name, product will be ignored.  If a product is supplied (and no ID), it will be used to search for a Product Attribute, and display_name will be ignored. 
 
@@ -52,10 +52,11 @@ with oden.ApiClient(configuration) as api_client:
     product_attribute = {"product":{"id":"b5da7b1f-3c16-5084-a5da-95b2eba5a4db"}} # ProductAttribute | 
 
     try:
-        api_response = api_instance.v2_product_attribute_search_post(product_attribute)
+        # Search product attributes
+        api_response = api_instance.search_product_attributes(product_attribute)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling ProductAttributesApi->v2_product_attribute_search_post: %s\n" % e)
+        print("Exception when calling ProductAttributesApi->search_product_attributes: %s\n" % e)
 ```
 
 ### Parameters
@@ -89,10 +90,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v2_product_attribute_set_post**
-> list[ProductAttribute] v2_product_attribute_set_post(product_attribute)
+# **set_product_attribute**
+> list[ProductAttribute] set_product_attribute(product_attribute)
 
-
+Create or update a product attribute
 
 Set a Product Attribute for a Product.  If the supplied Product Attribute doesn't exist, it will be created.  If the supplied Product Attribute Value doesn't exist, it will be created.  If the supplied Product Attribute Value is already set for the Product, it will be updated.  If the supplied Product Attribute Value is not set for the Product, it will be added.  Supplied Product must exist already. 
 
@@ -133,10 +134,11 @@ with oden.ApiClient(configuration) as api_client:
     product_attribute = {"product":{"id":"b5da7b1f-3c16-5084-a5da-95b2eba5a4db"},"display_name":"Cable Color","name":"cable_color","value":"Red"} # ProductAttribute | 
 
     try:
-        api_response = api_instance.v2_product_attribute_set_post(product_attribute)
+        # Create or update a product attribute
+        api_response = api_instance.set_product_attribute(product_attribute)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling ProductAttributesApi->v2_product_attribute_set_post: %s\n" % e)
+        print("Exception when calling ProductAttributesApi->set_product_attribute: %s\n" % e)
 ```
 
 ### Parameters

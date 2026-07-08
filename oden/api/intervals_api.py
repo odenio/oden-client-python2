@@ -37,603 +37,13 @@ class IntervalsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v2_interval_delete_post(self, interval, **kwargs):  # noqa: E501
-        """v2_interval_delete_post  # noqa: E501
-
-        Delete an interval by `type`, `line`, and `id`  **Note:** The `id` must be obtained from either: - The response when creating an interval via `/v2/interval/set` - Searching for intervals via `/v2/interval/search`  The examples below use placeholder IDs - replace with actual IDs from your system.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_interval_delete_post(interval, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param Interval interval: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: list[Interval]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v2_interval_delete_post_with_http_info(interval, **kwargs)  # noqa: E501
-
-    def v2_interval_delete_post_with_http_info(self, interval, **kwargs):  # noqa: E501
-        """v2_interval_delete_post  # noqa: E501
-
-        Delete an interval by `type`, `line`, and `id`  **Note:** The `id` must be obtained from either: - The response when creating an interval via `/v2/interval/set` - Searching for intervals via `/v2/interval/search`  The examples below use placeholder IDs - replace with actual IDs from your system.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_interval_delete_post_with_http_info(interval, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param Interval interval: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(list[Interval], status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'interval'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v2_interval_delete_post" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'interval' is set
-        if self.api_client.client_side_validation and ('interval' not in local_var_params or  # noqa: E501
-                                                        local_var_params['interval'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `interval` when calling `v2_interval_delete_post`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'interval' in local_var_params:
-            body_params = local_var_params['interval']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['APIKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v2/interval/delete', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[Interval]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v2_interval_search_post(self, interval, **kwargs):  # noqa: E501
-        """v2_interval_search_post  # noqa: E501
-
-        Searches for intervals by `type`, `line` and other optional parameters:  - `id` (for a specific Interval) - `match: unique` or omit  OR  - `match : last` for the most recent Interval of the given type on the given line  OR  - `start_time` and `end_time` (for a range of Intervals over a period of time) - `match: all` for more than one result  OR  - match all intervals for all lines in a given factory  AND/OR  - `name` (only for Intervals with a matching name)   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_interval_search_post(interval, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param Interval interval: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: list[Interval]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v2_interval_search_post_with_http_info(interval, **kwargs)  # noqa: E501
-
-    def v2_interval_search_post_with_http_info(self, interval, **kwargs):  # noqa: E501
-        """v2_interval_search_post  # noqa: E501
-
-        Searches for intervals by `type`, `line` and other optional parameters:  - `id` (for a specific Interval) - `match: unique` or omit  OR  - `match : last` for the most recent Interval of the given type on the given line  OR  - `start_time` and `end_time` (for a range of Intervals over a period of time) - `match: all` for more than one result  OR  - match all intervals for all lines in a given factory  AND/OR  - `name` (only for Intervals with a matching name)   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_interval_search_post_with_http_info(interval, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param Interval interval: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(list[Interval], status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'interval'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v2_interval_search_post" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'interval' is set
-        if self.api_client.client_side_validation and ('interval' not in local_var_params or  # noqa: E501
-                                                        local_var_params['interval'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `interval` when calling `v2_interval_search_post`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'interval' in local_var_params:
-            body_params = local_var_params['interval']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['APIKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v2/interval/search', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[Interval]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v2_interval_set_post(self, interval, **kwargs):  # noqa: E501
-        """v2_interval_set_post  # noqa: E501
-
-        Create or update an Interval.  Must include `line` and `type`. `match` must be omitted, `unique` or `last`   - If `id` is not supplied, a new Interval will be created.   - If `id` is supplied, existing Interval will be updated. This interval's start time can be modified using `start_time` field.  To update a specific interval supply the `id` of that interval.  If the interval exists with all the same parameters nothing is done.  To update the most recent Interval of a given `type` on a `line` one may use `match: last` and omit `id`  For `RUN` type: if `product` and/or `product_mapping` does not exist a new one will be created. Further a `target` may be set by adding a `target` to the metadata field. The `line` and `product` for this target will be the same as the interval.  Please see examples for more specific information.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_interval_set_post(interval, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param Interval interval: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: list[Interval]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v2_interval_set_post_with_http_info(interval, **kwargs)  # noqa: E501
-
-    def v2_interval_set_post_with_http_info(self, interval, **kwargs):  # noqa: E501
-        """v2_interval_set_post  # noqa: E501
-
-        Create or update an Interval.  Must include `line` and `type`. `match` must be omitted, `unique` or `last`   - If `id` is not supplied, a new Interval will be created.   - If `id` is supplied, existing Interval will be updated. This interval's start time can be modified using `start_time` field.  To update a specific interval supply the `id` of that interval.  If the interval exists with all the same parameters nothing is done.  To update the most recent Interval of a given `type` on a `line` one may use `match: last` and omit `id`  For `RUN` type: if `product` and/or `product_mapping` does not exist a new one will be created. Further a `target` may be set by adding a `target` to the metadata field. The `line` and `product` for this target will be the same as the interval.  Please see examples for more specific information.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_interval_set_post_with_http_info(interval, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param Interval interval: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(list[Interval], status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'interval'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v2_interval_set_post" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'interval' is set
-        if self.api_client.client_side_validation and ('interval' not in local_var_params or  # noqa: E501
-                                                        local_var_params['interval'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `interval` when calling `v2_interval_set_post`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'interval' in local_var_params:
-            body_params = local_var_params['interval']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['APIKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v2/interval/set', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[Interval]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v2_interval_type_search_post(self, interval_type, **kwargs):  # noqa: E501
-        """v2_interval_type_search_post  # noqa: E501
-
-        Search for Interval Types by `name`, `id`, or just `match: all` to return all Interval Types associated with the your organization. Basic Interval Types -- `RUN`, `BATCH`, and `STATE` -- are dedicated interval types that come out-of-the-box with Oden. Custom Interval Types may be created by users.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_interval_type_search_post(interval_type, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param IntervalType interval_type: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: list[IntervalType]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v2_interval_type_search_post_with_http_info(interval_type, **kwargs)  # noqa: E501
-
-    def v2_interval_type_search_post_with_http_info(self, interval_type, **kwargs):  # noqa: E501
-        """v2_interval_type_search_post  # noqa: E501
-
-        Search for Interval Types by `name`, `id`, or just `match: all` to return all Interval Types associated with the your organization. Basic Interval Types -- `RUN`, `BATCH`, and `STATE` -- are dedicated interval types that come out-of-the-box with Oden. Custom Interval Types may be created by users.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_interval_type_search_post_with_http_info(interval_type, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param IntervalType interval_type: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(list[IntervalType], status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'interval_type'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v2_interval_type_search_post" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'interval_type' is set
-        if self.api_client.client_side_validation and ('interval_type' not in local_var_params or  # noqa: E501
-                                                        local_var_params['interval_type'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `interval_type` when calling `v2_interval_type_search_post`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'interval_type' in local_var_params:
-            body_params = local_var_params['interval_type']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['APIKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v2/interval_type/search', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[IntervalType]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v2_interval_update_post(self, interval, **kwargs):  # noqa: E501
-        """v2_interval_update_post  # noqa: E501
-
-        Update an existing Interval. This endpoint only updates intervals and will not create new ones.  Must include `line`, `type`, and `id`. The `id` must reference an existing interval.  This interval's properties can be modified using the following fields: - `name`: Update the interval name - `start_time`: Modify the start time - `end_time`: Modify the end time - `metadata`: Update metadata (product, target, category, reason, etc.)  If the interval does not exist, a 404 error will be returned.  **Note:** The `id` must be obtained from either: - The response when creating an interval via `/v2/interval/set` - Searching for intervals via `/v2/interval/search`   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_interval_update_post(interval, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param Interval interval: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: list[Interval]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v2_interval_update_post_with_http_info(interval, **kwargs)  # noqa: E501
-
-    def v2_interval_update_post_with_http_info(self, interval, **kwargs):  # noqa: E501
-        """v2_interval_update_post  # noqa: E501
-
-        Update an existing Interval. This endpoint only updates intervals and will not create new ones.  Must include `line`, `type`, and `id`. The `id` must reference an existing interval.  This interval's properties can be modified using the following fields: - `name`: Update the interval name - `start_time`: Modify the start time - `end_time`: Modify the end time - `metadata`: Update metadata (product, target, category, reason, etc.)  If the interval does not exist, a 404 error will be returned.  **Note:** The `id` must be obtained from either: - The response when creating an interval via `/v2/interval/set` - Searching for intervals via `/v2/interval/search`   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_interval_update_post_with_http_info(interval, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param Interval interval: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(list[Interval], status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'interval'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v2_interval_update_post" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'interval' is set
-        if self.api_client.client_side_validation and ('interval' not in local_var_params or  # noqa: E501
-                                                        local_var_params['interval'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `interval` when calling `v2_interval_update_post`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'interval' in local_var_params:
-            body_params = local_var_params['interval']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['APIKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v2/interval/update', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[Interval]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v2_intervals_delete_post(self, interval_bulk_delete, **kwargs):  # noqa: E501
-        """v2_intervals_delete_post  # noqa: E501
+    def bulk_delete_intervals(self, interval_bulk_delete, **kwargs):  # noqa: E501
+        """Delete intervals in a time range  # noqa: E501
 
         Delete a group of intervals by a single `type` and a single `line`, between `start_time` and `end_time`. Returns a list of intervals that were not deleted, and the number of intervals deleted.  Limitations: - Cannot exceed 15,000 intervals per request, or 30 days worth of data. - Currently does not support \"batch\" or \"run\" interval types.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_intervals_delete_post(interval_bulk_delete, async_req=True)
+        >>> thread = api.bulk_delete_intervals(interval_bulk_delete, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -650,15 +60,15 @@ class IntervalsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_intervals_delete_post_with_http_info(interval_bulk_delete, **kwargs)  # noqa: E501
+        return self.bulk_delete_intervals_with_http_info(interval_bulk_delete, **kwargs)  # noqa: E501
 
-    def v2_intervals_delete_post_with_http_info(self, interval_bulk_delete, **kwargs):  # noqa: E501
-        """v2_intervals_delete_post  # noqa: E501
+    def bulk_delete_intervals_with_http_info(self, interval_bulk_delete, **kwargs):  # noqa: E501
+        """Delete intervals in a time range  # noqa: E501
 
         Delete a group of intervals by a single `type` and a single `line`, between `start_time` and `end_time`. Returns a list of intervals that were not deleted, and the number of intervals deleted.  Limitations: - Cannot exceed 15,000 intervals per request, or 30 days worth of data. - Currently does not support \"batch\" or \"run\" interval types.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_intervals_delete_post_with_http_info(interval_bulk_delete, async_req=True)
+        >>> thread = api.bulk_delete_intervals_with_http_info(interval_bulk_delete, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -695,14 +105,14 @@ class IntervalsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_intervals_delete_post" % key
+                    " to method bulk_delete_intervals" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'interval_bulk_delete' is set
         if self.api_client.client_side_validation and ('interval_bulk_delete' not in local_var_params or  # noqa: E501
                                                         local_var_params['interval_bulk_delete'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `interval_bulk_delete` when calling `v2_intervals_delete_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `interval_bulk_delete` when calling `bulk_delete_intervals`")  # noqa: E501
 
         collection_formats = {}
 
@@ -745,13 +155,13 @@ class IntervalsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_intervals_set_post(self, interval_bulk_create, **kwargs):  # noqa: E501
-        """v2_intervals_set_post  # noqa: E501
+    def bulk_set_intervals(self, interval_bulk_create, **kwargs):  # noqa: E501
+        """Create a set of intervals  # noqa: E501
 
         Create (Does not update) a group of custom intervals, for the same `type` and `line`. Line and type do not need to be included in each individual interval, just once at the top level.  Limitations: - Cannot excees 2500 intervals per request. - Will not write over other intervals - Does not support \"batch\", \"run\", or \"state\" interval types.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_intervals_set_post(interval_bulk_create, async_req=True)
+        >>> thread = api.bulk_set_intervals(interval_bulk_create, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -768,15 +178,15 @@ class IntervalsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_intervals_set_post_with_http_info(interval_bulk_create, **kwargs)  # noqa: E501
+        return self.bulk_set_intervals_with_http_info(interval_bulk_create, **kwargs)  # noqa: E501
 
-    def v2_intervals_set_post_with_http_info(self, interval_bulk_create, **kwargs):  # noqa: E501
-        """v2_intervals_set_post  # noqa: E501
+    def bulk_set_intervals_with_http_info(self, interval_bulk_create, **kwargs):  # noqa: E501
+        """Create a set of intervals  # noqa: E501
 
         Create (Does not update) a group of custom intervals, for the same `type` and `line`. Line and type do not need to be included in each individual interval, just once at the top level.  Limitations: - Cannot excees 2500 intervals per request. - Will not write over other intervals - Does not support \"batch\", \"run\", or \"state\" interval types.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_intervals_set_post_with_http_info(interval_bulk_create, async_req=True)
+        >>> thread = api.bulk_set_intervals_with_http_info(interval_bulk_create, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -813,14 +223,14 @@ class IntervalsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_intervals_set_post" % key
+                    " to method bulk_set_intervals" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'interval_bulk_create' is set
         if self.api_client.client_side_validation and ('interval_bulk_create' not in local_var_params or  # noqa: E501
                                                         local_var_params['interval_bulk_create'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `interval_bulk_create` when calling `v2_intervals_set_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `interval_bulk_create` when calling `bulk_set_intervals`")  # noqa: E501
 
         collection_formats = {}
 
@@ -863,13 +273,13 @@ class IntervalsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_intervals_update_post(self, interval_bulk_update, **kwargs):  # noqa: E501
-        """v2_intervals_update_post  # noqa: E501
+    def bulk_update_intervals(self, interval_bulk_update, **kwargs):  # noqa: E501
+        """Update a set of intervals  # noqa: E501
 
         Update multiple existing intervals. This endpoint only updates intervals and will not create new ones.  Each interval in the `intervals` array must include an `id` that references an existing interval.  Updatable fields for each interval: - `name`: Update the interval name - `start_time`: Modify the start time - `end_time`: Modify the end time - `metadata`: Update metadata (product, target, category, reason, etc.)  The endpoint will attempt to update all intervals and return information about successes and failures: - Successfully updated intervals are returned in the response - Failed intervals are listed with their IDs and error reasons  Limitations: - Cannot exceed 2500 intervals per request - All intervals must be of the same `type` and on the same `line`  **Note:** Interval IDs must be obtained from either: - The response when creating intervals via `/v2/interval/set` or `/v2/intervals/set` - Searching for intervals via `/v2/interval/search`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_intervals_update_post(interval_bulk_update, async_req=True)
+        >>> thread = api.bulk_update_intervals(interval_bulk_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -886,15 +296,15 @@ class IntervalsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_intervals_update_post_with_http_info(interval_bulk_update, **kwargs)  # noqa: E501
+        return self.bulk_update_intervals_with_http_info(interval_bulk_update, **kwargs)  # noqa: E501
 
-    def v2_intervals_update_post_with_http_info(self, interval_bulk_update, **kwargs):  # noqa: E501
-        """v2_intervals_update_post  # noqa: E501
+    def bulk_update_intervals_with_http_info(self, interval_bulk_update, **kwargs):  # noqa: E501
+        """Update a set of intervals  # noqa: E501
 
         Update multiple existing intervals. This endpoint only updates intervals and will not create new ones.  Each interval in the `intervals` array must include an `id` that references an existing interval.  Updatable fields for each interval: - `name`: Update the interval name - `start_time`: Modify the start time - `end_time`: Modify the end time - `metadata`: Update metadata (product, target, category, reason, etc.)  The endpoint will attempt to update all intervals and return information about successes and failures: - Successfully updated intervals are returned in the response - Failed intervals are listed with their IDs and error reasons  Limitations: - Cannot exceed 2500 intervals per request - All intervals must be of the same `type` and on the same `line`  **Note:** Interval IDs must be obtained from either: - The response when creating intervals via `/v2/interval/set` or `/v2/intervals/set` - Searching for intervals via `/v2/interval/search`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_intervals_update_post_with_http_info(interval_bulk_update, async_req=True)
+        >>> thread = api.bulk_update_intervals_with_http_info(interval_bulk_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -931,14 +341,14 @@ class IntervalsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_intervals_update_post" % key
+                    " to method bulk_update_intervals" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'interval_bulk_update' is set
         if self.api_client.client_side_validation and ('interval_bulk_update' not in local_var_params or  # noqa: E501
                                                         local_var_params['interval_bulk_update'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `interval_bulk_update` when calling `v2_intervals_update_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `interval_bulk_update` when calling `bulk_update_intervals`")  # noqa: E501
 
         collection_formats = {}
 
@@ -974,6 +384,832 @@ class IntervalsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='InlineResponse200',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_interval(self, interval, **kwargs):  # noqa: E501
+        """Delete an interval  # noqa: E501
+
+        Delete an interval by `type`, `line`, and `id`  **Note:** The `id` must be obtained from either: - The response when creating an interval via `/v2/interval/set` - Searching for intervals via `/v2/interval/search`  The examples below use placeholder IDs - replace with actual IDs from your system.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_interval(interval, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Interval interval: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[Interval]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_interval_with_http_info(interval, **kwargs)  # noqa: E501
+
+    def delete_interval_with_http_info(self, interval, **kwargs):  # noqa: E501
+        """Delete an interval  # noqa: E501
+
+        Delete an interval by `type`, `line`, and `id`  **Note:** The `id` must be obtained from either: - The response when creating an interval via `/v2/interval/set` - Searching for intervals via `/v2/interval/search`  The examples below use placeholder IDs - replace with actual IDs from your system.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_interval_with_http_info(interval, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Interval interval: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[Interval], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'interval'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_interval" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'interval' is set
+        if self.api_client.client_side_validation and ('interval' not in local_var_params or  # noqa: E501
+                                                        local_var_params['interval'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `interval` when calling `delete_interval`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'interval' in local_var_params:
+            body_params = local_var_params['interval']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['APIKeyAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/interval/delete', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[Interval]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_interval_type(self, interval_type, **kwargs):  # noqa: E501
+        """Delete a custom interval type  # noqa: E501
+
+        Delete an existing custom Interval Type. `id` is required. Built-in types (RUN, BATCH, STATE) cannot be deleted.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_interval_type(interval_type, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param IntervalType interval_type: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: IntervalType
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_interval_type_with_http_info(interval_type, **kwargs)  # noqa: E501
+
+    def delete_interval_type_with_http_info(self, interval_type, **kwargs):  # noqa: E501
+        """Delete a custom interval type  # noqa: E501
+
+        Delete an existing custom Interval Type. `id` is required. Built-in types (RUN, BATCH, STATE) cannot be deleted.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_interval_type_with_http_info(interval_type, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param IntervalType interval_type: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(IntervalType, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'interval_type'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_interval_type" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'interval_type' is set
+        if self.api_client.client_side_validation and ('interval_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['interval_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `interval_type` when calling `delete_interval_type`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'interval_type' in local_var_params:
+            body_params = local_var_params['interval_type']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['APIKeyAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/interval_type/delete', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='IntervalType',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_interval_types(self, interval_type, **kwargs):  # noqa: E501
+        """Search interval types  # noqa: E501
+
+        Search for Interval Types by `name`, `id`, or just `match: all` to return all Interval Types associated with the your organization. Basic Interval Types -- `RUN`, `BATCH`, and `STATE` -- are dedicated interval types that come out-of-the-box with Oden. Custom Interval Types may be created by users.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_interval_types(interval_type, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param IntervalType interval_type: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[IntervalType]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.search_interval_types_with_http_info(interval_type, **kwargs)  # noqa: E501
+
+    def search_interval_types_with_http_info(self, interval_type, **kwargs):  # noqa: E501
+        """Search interval types  # noqa: E501
+
+        Search for Interval Types by `name`, `id`, or just `match: all` to return all Interval Types associated with the your organization. Basic Interval Types -- `RUN`, `BATCH`, and `STATE` -- are dedicated interval types that come out-of-the-box with Oden. Custom Interval Types may be created by users.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_interval_types_with_http_info(interval_type, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param IntervalType interval_type: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[IntervalType], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'interval_type'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_interval_types" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'interval_type' is set
+        if self.api_client.client_side_validation and ('interval_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['interval_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `interval_type` when calling `search_interval_types`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'interval_type' in local_var_params:
+            body_params = local_var_params['interval_type']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['APIKeyAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/interval_type/search', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[IntervalType]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_intervals(self, interval, **kwargs):  # noqa: E501
+        """Search intervals on a line  # noqa: E501
+
+        Searches for intervals by `type`, `line` and other optional parameters:  - `id` (for a specific Interval) - `match: unique` or omit  OR  - `match : last` for the most recent Interval of the given type on the given line  OR  - `start_time` and `end_time` (for a range of Intervals over a period of time) - `match: all` for more than one result  OR  - match all intervals for all lines in a given factory  AND/OR  - `name` (only for Intervals with a matching name)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_intervals(interval, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Interval interval: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[Interval]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.search_intervals_with_http_info(interval, **kwargs)  # noqa: E501
+
+    def search_intervals_with_http_info(self, interval, **kwargs):  # noqa: E501
+        """Search intervals on a line  # noqa: E501
+
+        Searches for intervals by `type`, `line` and other optional parameters:  - `id` (for a specific Interval) - `match: unique` or omit  OR  - `match : last` for the most recent Interval of the given type on the given line  OR  - `start_time` and `end_time` (for a range of Intervals over a period of time) - `match: all` for more than one result  OR  - match all intervals for all lines in a given factory  AND/OR  - `name` (only for Intervals with a matching name)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_intervals_with_http_info(interval, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Interval interval: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[Interval], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'interval'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_intervals" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'interval' is set
+        if self.api_client.client_side_validation and ('interval' not in local_var_params or  # noqa: E501
+                                                        local_var_params['interval'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `interval` when calling `search_intervals`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'interval' in local_var_params:
+            body_params = local_var_params['interval']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['APIKeyAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/interval/search', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[Interval]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def set_interval(self, interval, **kwargs):  # noqa: E501
+        """Create or update an interval  # noqa: E501
+
+        Create or update an Interval.  Must include `line` and `type`. `match` must be omitted, `unique` or `last`   - If `id` is not supplied, a new Interval will be created.   - If `id` is supplied, existing Interval will be updated. This interval's start time can be modified using `start_time` field.  To update a specific interval supply the `id` of that interval.  If the interval exists with all the same parameters nothing is done.  To update the most recent Interval of a given `type` on a `line` one may use `match: last` and omit `id`  For `RUN` type: if `product` and/or `product_mapping` does not exist a new one will be created. Further a `target` may be set by adding a `target` to the metadata field. The `line` and `product` for this target will be the same as the interval.  Please see examples for more specific information.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_interval(interval, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Interval interval: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[Interval]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.set_interval_with_http_info(interval, **kwargs)  # noqa: E501
+
+    def set_interval_with_http_info(self, interval, **kwargs):  # noqa: E501
+        """Create or update an interval  # noqa: E501
+
+        Create or update an Interval.  Must include `line` and `type`. `match` must be omitted, `unique` or `last`   - If `id` is not supplied, a new Interval will be created.   - If `id` is supplied, existing Interval will be updated. This interval's start time can be modified using `start_time` field.  To update a specific interval supply the `id` of that interval.  If the interval exists with all the same parameters nothing is done.  To update the most recent Interval of a given `type` on a `line` one may use `match: last` and omit `id`  For `RUN` type: if `product` and/or `product_mapping` does not exist a new one will be created. Further a `target` may be set by adding a `target` to the metadata field. The `line` and `product` for this target will be the same as the interval.  Please see examples for more specific information.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_interval_with_http_info(interval, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Interval interval: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[Interval], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'interval'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_interval" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'interval' is set
+        if self.api_client.client_side_validation and ('interval' not in local_var_params or  # noqa: E501
+                                                        local_var_params['interval'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `interval` when calling `set_interval`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'interval' in local_var_params:
+            body_params = local_var_params['interval']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['APIKeyAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/interval/set', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[Interval]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def set_interval_type(self, interval_type_set, **kwargs):  # noqa: E501
+        """Create or update a custom interval type  # noqa: E501
+
+        **Create** (no `id` in the body): send `name` (required) and optional `metadata_schema` / `tags`.  **Update** (with `id`): send the interval type’s `id` and optional `metadata_schema` / `tags` only. Do not send `name` for updates; including `name` returns 400. Renames are not supported.  **Patch (update only)**: `metadata_schema` — if the key is missing, the existing value is kept; if present, it replaces. `tags` — if the key is missing, tags are unchanged; `null` leaves tags unchanged; `[]` clears tags; a non-empty array replaces.  **Built-in types (RUN, BATCH, STATE) cannot be created, set, or deleted.**   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_interval_type(interval_type_set, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param IntervalTypeSet interval_type_set: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: IntervalType
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.set_interval_type_with_http_info(interval_type_set, **kwargs)  # noqa: E501
+
+    def set_interval_type_with_http_info(self, interval_type_set, **kwargs):  # noqa: E501
+        """Create or update a custom interval type  # noqa: E501
+
+        **Create** (no `id` in the body): send `name` (required) and optional `metadata_schema` / `tags`.  **Update** (with `id`): send the interval type’s `id` and optional `metadata_schema` / `tags` only. Do not send `name` for updates; including `name` returns 400. Renames are not supported.  **Patch (update only)**: `metadata_schema` — if the key is missing, the existing value is kept; if present, it replaces. `tags` — if the key is missing, tags are unchanged; `null` leaves tags unchanged; `[]` clears tags; a non-empty array replaces.  **Built-in types (RUN, BATCH, STATE) cannot be created, set, or deleted.**   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_interval_type_with_http_info(interval_type_set, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param IntervalTypeSet interval_type_set: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(IntervalType, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'interval_type_set'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_interval_type" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'interval_type_set' is set
+        if self.api_client.client_side_validation and ('interval_type_set' not in local_var_params or  # noqa: E501
+                                                        local_var_params['interval_type_set'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `interval_type_set` when calling `set_interval_type`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'interval_type_set' in local_var_params:
+            body_params = local_var_params['interval_type_set']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['APIKeyAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/interval_type/set', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='IntervalType',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_interval(self, interval, **kwargs):  # noqa: E501
+        """Update an interval  # noqa: E501
+
+        Update an existing Interval. This endpoint only updates intervals and will not create new ones.  Must include `line`, `type`, and `id`. The `id` must reference an existing interval.  This interval's properties can be modified using the following fields: - `name`: Update the interval name - `start_time`: Modify the start time - `end_time`: Modify the end time - `metadata`: Update metadata (product, target, category, reason, etc.)  If the interval does not exist, a 404 error will be returned.  **Note:** The `id` must be obtained from either: - The response when creating an interval via `/v2/interval/set` - Searching for intervals via `/v2/interval/search`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_interval(interval, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Interval interval: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[Interval]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_interval_with_http_info(interval, **kwargs)  # noqa: E501
+
+    def update_interval_with_http_info(self, interval, **kwargs):  # noqa: E501
+        """Update an interval  # noqa: E501
+
+        Update an existing Interval. This endpoint only updates intervals and will not create new ones.  Must include `line`, `type`, and `id`. The `id` must reference an existing interval.  This interval's properties can be modified using the following fields: - `name`: Update the interval name - `start_time`: Modify the start time - `end_time`: Modify the end time - `metadata`: Update metadata (product, target, category, reason, etc.)  If the interval does not exist, a 404 error will be returned.  **Note:** The `id` must be obtained from either: - The response when creating an interval via `/v2/interval/set` - Searching for intervals via `/v2/interval/search`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_interval_with_http_info(interval, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Interval interval: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[Interval], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'interval'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_interval" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'interval' is set
+        if self.api_client.client_side_validation and ('interval' not in local_var_params or  # noqa: E501
+                                                        local_var_params['interval'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `interval` when calling `update_interval`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'interval' in local_var_params:
+            body_params = local_var_params['interval']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['APIKeyAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/interval/update', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[Interval]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

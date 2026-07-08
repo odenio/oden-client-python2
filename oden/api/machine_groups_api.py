@@ -37,13 +37,13 @@ class MachineGroupsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v2_factory_search_post(self, factory, **kwargs):  # noqa: E501
-        """v2_factory_search_post  # noqa: E501
+    def search_factories(self, factory, **kwargs):  # noqa: E501
+        """Search factories  # noqa: E501
 
         Search for a specific Factory by a unique indentifier: - `name` - `match: unique` or omit  OR  - `id` - `match: unique` or omit  Search for all factories: - `match: all`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_factory_search_post(factory, async_req=True)
+        >>> thread = api.search_factories(factory, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -60,15 +60,15 @@ class MachineGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_factory_search_post_with_http_info(factory, **kwargs)  # noqa: E501
+        return self.search_factories_with_http_info(factory, **kwargs)  # noqa: E501
 
-    def v2_factory_search_post_with_http_info(self, factory, **kwargs):  # noqa: E501
-        """v2_factory_search_post  # noqa: E501
+    def search_factories_with_http_info(self, factory, **kwargs):  # noqa: E501
+        """Search factories  # noqa: E501
 
         Search for a specific Factory by a unique indentifier: - `name` - `match: unique` or omit  OR  - `id` - `match: unique` or omit  Search for all factories: - `match: all`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_factory_search_post_with_http_info(factory, async_req=True)
+        >>> thread = api.search_factories_with_http_info(factory, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -105,14 +105,14 @@ class MachineGroupsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_factory_search_post" % key
+                    " to method search_factories" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'factory' is set
         if self.api_client.client_side_validation and ('factory' not in local_var_params or  # noqa: E501
                                                         local_var_params['factory'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `factory` when calling `v2_factory_search_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `factory` when calling `search_factories`")  # noqa: E501
 
         collection_formats = {}
 
@@ -155,13 +155,13 @@ class MachineGroupsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_line_search_post(self, line, **kwargs):  # noqa: E501
-        """v2_line_search_post  # noqa: E501
+    def search_lines(self, line, **kwargs):  # noqa: E501
+        """Search production lines  # noqa: E501
 
         Search for specific Line by any Line identifier. Either: - `id` - `match: unique` or omit  OR - `factory`   - `name` or `id` - line `name` - `match: unique` or omit  Search for all Lines for a given Factory: - `factory`   - `name` or `id` - `match: all`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_line_search_post(line, async_req=True)
+        >>> thread = api.search_lines(line, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -178,15 +178,15 @@ class MachineGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_line_search_post_with_http_info(line, **kwargs)  # noqa: E501
+        return self.search_lines_with_http_info(line, **kwargs)  # noqa: E501
 
-    def v2_line_search_post_with_http_info(self, line, **kwargs):  # noqa: E501
-        """v2_line_search_post  # noqa: E501
+    def search_lines_with_http_info(self, line, **kwargs):  # noqa: E501
+        """Search production lines  # noqa: E501
 
         Search for specific Line by any Line identifier. Either: - `id` - `match: unique` or omit  OR - `factory`   - `name` or `id` - line `name` - `match: unique` or omit  Search for all Lines for a given Factory: - `factory`   - `name` or `id` - `match: all`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_line_search_post_with_http_info(line, async_req=True)
+        >>> thread = api.search_lines_with_http_info(line, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -223,14 +223,14 @@ class MachineGroupsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_line_search_post" % key
+                    " to method search_lines" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'line' is set
         if self.api_client.client_side_validation and ('line' not in local_var_params or  # noqa: E501
                                                         local_var_params['line'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `line` when calling `v2_line_search_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `line` when calling `search_lines`")  # noqa: E501
 
         collection_formats = {}
 

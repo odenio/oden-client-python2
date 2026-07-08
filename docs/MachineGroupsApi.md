@@ -4,14 +4,14 @@ All URIs are relative to *https://api.oden.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v2_factory_search_post**](MachineGroupsApi.md#v2_factory_search_post) | **POST** /v2/factory/search | 
-[**v2_line_search_post**](MachineGroupsApi.md#v2_line_search_post) | **POST** /v2/line/search | 
+[**search_factories**](MachineGroupsApi.md#search_factories) | **POST** /v2/factory/search | Search factories
+[**search_lines**](MachineGroupsApi.md#search_lines) | **POST** /v2/line/search | Search production lines
 
 
-# **v2_factory_search_post**
-> list[Factory] v2_factory_search_post(factory)
+# **search_factories**
+> list[Factory] search_factories(factory)
 
-
+Search factories
 
 Search for a specific Factory by a unique indentifier: - `name` - `match: unique` or omit  OR  - `id` - `match: unique` or omit  Search for all factories: - `match: all` 
 
@@ -52,10 +52,11 @@ with oden.ApiClient(configuration) as api_client:
     factory = {"name":"Factory A"} # Factory | 
 
     try:
-        api_response = api_instance.v2_factory_search_post(factory)
+        # Search factories
+        api_response = api_instance.search_factories(factory)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling MachineGroupsApi->v2_factory_search_post: %s\n" % e)
+        print("Exception when calling MachineGroupsApi->search_factories: %s\n" % e)
 ```
 
 ### Parameters
@@ -91,10 +92,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v2_line_search_post**
-> list[Line] v2_line_search_post(line)
+# **search_lines**
+> list[Line] search_lines(line)
 
-
+Search production lines
 
 Search for specific Line by any Line identifier. Either: - `id` - `match: unique` or omit  OR - `factory`   - `name` or `id` - line `name` - `match: unique` or omit  Search for all Lines for a given Factory: - `factory`   - `name` or `id` - `match: all` 
 
@@ -135,10 +136,11 @@ with oden.ApiClient(configuration) as api_client:
     line = {"match":"all","factory":{"name":"Factory A"}} # Line | 
 
     try:
-        api_response = api_instance.v2_line_search_post(line)
+        # Search production lines
+        api_response = api_instance.search_lines(line)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling MachineGroupsApi->v2_line_search_post: %s\n" % e)
+        print("Exception when calling MachineGroupsApi->search_lines: %s\n" % e)
 ```
 
 ### Parameters

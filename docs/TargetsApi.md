@@ -4,14 +4,14 @@ All URIs are relative to *https://api.oden.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v2_target_search_post**](TargetsApi.md#v2_target_search_post) | **POST** /v2/target/search | 
-[**v2_target_set_post**](TargetsApi.md#v2_target_set_post) | **POST** /v2/target/set | 
+[**search_targets**](TargetsApi.md#search_targets) | **POST** /v2/target/search | Search metric targets
+[**set_target**](TargetsApi.md#set_target) | **POST** /v2/target/set | Create or update a metric target
 
 
-# **v2_target_search_post**
-> list[Target] v2_target_search_post(target)
+# **search_targets**
+> list[Target] search_targets(target)
 
-
+Search metric targets
 
 Search for a Target by `line`, `metric_group`, and `product`. For each of these inputs, any of their unique indentifiers (as described in their `search` endpoint) may be used. See examples. 
 
@@ -52,10 +52,11 @@ with oden.ApiClient(configuration) as api_client:
     target = {"line":{"id":"0012ab4d-1234-123a-8c76-6ea2344be6df"},"metric_group":{"name":"metric group name"},"product":{"id":"0012ab4d-1234-123a-8c76-6ea2344be6df"}} # Target | 
 
     try:
-        api_response = api_instance.v2_target_search_post(target)
+        # Search metric targets
+        api_response = api_instance.search_targets(target)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TargetsApi->v2_target_search_post: %s\n" % e)
+        print("Exception when calling TargetsApi->search_targets: %s\n" % e)
 ```
 
 ### Parameters
@@ -91,10 +92,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v2_target_set_post**
-> Target v2_target_set_post(target)
+# **set_target**
+> Target set_target(target)
 
-
+Create or update a metric target
 
 Create or update a Target.  First the endpoint will search for a Target by `metric_group`, `product`, and `line`: - If the target does not exist a new target is created. - If the product or its mapping to the given line does not exist, they will be created. - If a target exists but with different parameters, it will be updated. - If the target exists with all the same parameters nothing is done. 
 
@@ -135,10 +136,11 @@ with oden.ApiClient(configuration) as api_client:
     target = {"line":{"id":"0012ab4d-1234-123a-8c76-6ea2344be6df"},"metric_group":{"name":"metric group name"},"product":{"id":"0012ab4d-1234-123a-8c76-6ea2344be6df"},"lsl":100.0,"target_value":200,"usl":300.55} # Target | 
 
     try:
-        api_response = api_instance.v2_target_set_post(target)
+        # Create or update a metric target
+        api_response = api_instance.set_target(target)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TargetsApi->v2_target_set_post: %s\n" % e)
+        print("Exception when calling TargetsApi->set_target: %s\n" % e)
 ```
 
 ### Parameters

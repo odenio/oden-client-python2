@@ -4,15 +4,15 @@ All URIs are relative to *https://api.oden.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v2_scrap_yield_delete_post**](ScrapYieldDataApi.md#v2_scrap_yield_delete_post) | **POST** /v2/scrap_yield/delete | 
-[**v2_scrap_yield_search_post**](ScrapYieldDataApi.md#v2_scrap_yield_search_post) | **POST** /v2/scrap_yield/search | 
-[**v2_scrap_yield_set_post**](ScrapYieldDataApi.md#v2_scrap_yield_set_post) | **POST** /v2/scrap_yield/set | 
+[**delete_scrap_yield**](ScrapYieldDataApi.md#delete_scrap_yield) | **POST** /v2/scrap_yield/delete | Delete a scrap/yield record
+[**search_scrap_yield**](ScrapYieldDataApi.md#search_scrap_yield) | **POST** /v2/scrap_yield/search | Search scrap/yield records
+[**set_scrap_yield**](ScrapYieldDataApi.md#set_scrap_yield) | **POST** /v2/scrap_yield/set | Create or update a scrap/yield record
 
 
-# **v2_scrap_yield_delete_post**
-> v2_scrap_yield_delete_post(inline_object2)
+# **delete_scrap_yield**
+> delete_scrap_yield(inline_object2)
 
-
+Delete a scrap/yield record
 
 Deletes Scrap Yield record by ID and line 
 
@@ -53,9 +53,10 @@ with oden.ApiClient(configuration) as api_client:
     inline_object2 = oden.InlineObject2() # InlineObject2 | 
 
     try:
-        api_instance.v2_scrap_yield_delete_post(inline_object2)
+        # Delete a scrap/yield record
+        api_instance.delete_scrap_yield(inline_object2)
     except ApiException as e:
-        print("Exception when calling ScrapYieldDataApi->v2_scrap_yield_delete_post: %s\n" % e)
+        print("Exception when calling ScrapYieldDataApi->delete_scrap_yield: %s\n" % e)
 ```
 
 ### Parameters
@@ -91,10 +92,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v2_scrap_yield_search_post**
-> v2_scrap_yield_search_post(inline_object)
+# **search_scrap_yield**
+> search_scrap_yield(inline_object)
 
-
+Search scrap/yield records
 
 Searches for scrap/yield records for a given Interval 
 
@@ -135,9 +136,10 @@ with oden.ApiClient(configuration) as api_client:
     inline_object = oden.InlineObject() # InlineObject | 
 
     try:
-        api_instance.v2_scrap_yield_search_post(inline_object)
+        # Search scrap/yield records
+        api_instance.search_scrap_yield(inline_object)
     except ApiException as e:
-        print("Exception when calling ScrapYieldDataApi->v2_scrap_yield_search_post: %s\n" % e)
+        print("Exception when calling ScrapYieldDataApi->search_scrap_yield: %s\n" % e)
 ```
 
 ### Parameters
@@ -173,10 +175,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v2_scrap_yield_set_post**
-> v2_scrap_yield_set_post(inline_object1, pattern=pattern)
+# **set_scrap_yield**
+> set_scrap_yield(inline_object1, pattern=pattern)
 
-
+Create or update a scrap/yield record
 
 Uploads scrap or yield raw data.  Notes:  - If `id` is provided the existing Scrap/Yield record will be updated.  - If `id` is omitted a new Scrap/Yield record will be created.  - The scrap yield for an interval is an aggregate of all scrap yield raw data records associated with that interval     - Therefore, multiple scrap yield records can exist for a single interval, each contributing to the \"aggregate\" (i.e. sum total) scrap/yield of that interval  - Changing an aggregate can be done by either adding another record with an offset, or updating an existing record.     - Example: If you have 3 scrap records in an interval: 50 50 50 = 150 and want to make the aggregate 100 for a given interval, either update one of the existing scrap records from 50 -> 0, or add a new one with value -50  - Duplicate keys should be avoided, see Schema docs above for details. 
 
@@ -218,9 +220,10 @@ with oden.ApiClient(configuration) as api_client:
 pattern = 'exact' # str | Optional pattern type to use for matching: - `exact` for exact match - `contains` for the string to be contained in the query - `regex` to match based on a regular expression  (optional) (default to 'exact')
 
     try:
-        api_instance.v2_scrap_yield_set_post(inline_object1, pattern=pattern)
+        # Create or update a scrap/yield record
+        api_instance.set_scrap_yield(inline_object1, pattern=pattern)
     except ApiException as e:
-        print("Exception when calling ScrapYieldDataApi->v2_scrap_yield_set_post: %s\n" % e)
+        print("Exception when calling ScrapYieldDataApi->set_scrap_yield: %s\n" % e)
 ```
 
 ### Parameters

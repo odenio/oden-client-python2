@@ -1,18 +1,18 @@
-# oden.OQLApi
+# oden.DashboardsApi
 
 All URIs are relative to *https://api.oden.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**run_oql_query**](OQLApi.md#run_oql_query) | **POST** /v2/oql/query | Run an OQL query
+[**execute_dashboard**](DashboardsApi.md#execute_dashboard) | **POST** /v2/dashboard/execute | Execute a dashboard
 
 
-# **run_oql_query**
-> run_oql_query(oql_query, format=format)
+# **execute_dashboard**
+> list[DashboardExecuteResult] execute_dashboard(dashboard_execute_request)
 
-Run an OQL query
+Execute a dashboard
 
-Run an OQL (Oden Query Language) query.  For reference on writing OQL queries, see:  [https://platform.oden.app/knowledge/how-do-i-write-queries-in-oden-query-language-oql](https://platform.oden.app/knowledge/how-do-i-write-queries-in-oden-query-language-oql) 
+Execute every module in a dashboard with shared time-range and filter overrides, returning the columns and rows produced by each module.  Modules execute in parallel and are reported in the dashboard's stored module order. Per-module failures (parse, dispatch) land in the `error` field of that module's result; siblings continue to run.  Known v1 limitations: - Template variables (`{var_name}` in stored OQL) are not substituted   server-side. Modules containing unsubstituted placeholders will   fail at parse time. 
 
 ### Example
 
@@ -47,27 +47,26 @@ configuration = oden.Configuration(
 # Enter a context with an instance of the API client
 with oden.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = oden.OQLApi(api_client)
-    oql_query = oden.OQLQuery() # OQLQuery | 
-format = 'json' # str | Format of the response. Can be `json`, `jsonextended` or `csv`. If unspecified, defaults to `jsonextended`.  (optional) (default to 'json')
+    api_instance = oden.DashboardsApi(api_client)
+    dashboard_execute_request = oden.DashboardExecuteRequest() # DashboardExecuteRequest | 
 
     try:
-        # Run an OQL query
-        api_instance.run_oql_query(oql_query, format=format)
+        # Execute a dashboard
+        api_response = api_instance.execute_dashboard(dashboard_execute_request)
+        pprint(api_response)
     except ApiException as e:
-        print("Exception when calling OQLApi->run_oql_query: %s\n" % e)
+        print("Exception when calling DashboardsApi->execute_dashboard: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **oql_query** | [**OQLQuery**](OQLQuery.md)|  | 
- **format** | **str**| Format of the response. Can be &#x60;json&#x60;, &#x60;jsonextended&#x60; or &#x60;csv&#x60;. If unspecified, defaults to &#x60;jsonextended&#x60;.  | [optional] [default to &#39;json&#39;]
+ **dashboard_execute_request** | [**DashboardExecuteRequest**](DashboardExecuteRequest.md)|  | 
 
 ### Return type
 
-void (empty response body)
+[**list[DashboardExecuteResult]**](DashboardExecuteResult.md)
 
 ### Authorization
 
@@ -81,12 +80,11 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful response |  -  |
+**200** | Dashboard loaded and each module executed. Individual modules may still report &#x60;error&#x60; in their result; this is not a 200/non-200 distinction.  |  -  |
 **400** | An error occurred regarding one of the input parameters |  -  |
 **401** | User has provided either no credentials or invalid credentials |  -  |
 **403** | User has provided valid credentials but is not authorized to access the entity  |  -  |
 **404** | Entity not found |  -  |
-**409** | A {match: \&quot;unique\&quot;} was requested, but multiple entities matched the search parameters.  |  -  |
 **429** | Too many requests |  -  |
 **500** | An internal server error has occurred. If reporting the error to Oden, include the ID returned in this response to aid in debugging.  |  -  |
 **501** | Endpoint is not yet implemented |  -  |

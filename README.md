@@ -172,14 +172,15 @@ configuration = oden.Configuration(
 # Enter a context with an instance of the API client
 with oden.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = oden.IntervalsApi(api_client)
-    interval = {"id":"<REPLACE_WITH_ACTUAL_RUN_UUID>","line":{"id":"2fc8b5e5-fb88-48a7-9c35-4a763206608c"},"type":{"name":"RUN"}} # Interval | 
+    api_instance = oden.DashboardsApi(api_client)
+    dashboard_execute_request = oden.DashboardExecuteRequest() # DashboardExecuteRequest | 
 
     try:
-        api_response = api_instance.v2_interval_delete_post(interval)
+        # Execute a dashboard
+        api_response = api_instance.execute_dashboard(dashboard_execute_request)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling IntervalsApi->v2_interval_delete_post: %s\n" % e)
+        print("Exception when calling DashboardsApi->execute_dashboard: %s\n" % e)
     
 ```
 
@@ -189,44 +190,57 @@ All URIs are relative to *https://api.oden.app*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*IntervalsApi* | [**v2_interval_delete_post**](docs/IntervalsApi.md#v2_interval_delete_post) | **POST** /v2/interval/delete | 
-*IntervalsApi* | [**v2_interval_search_post**](docs/IntervalsApi.md#v2_interval_search_post) | **POST** /v2/interval/search | 
-*IntervalsApi* | [**v2_interval_set_post**](docs/IntervalsApi.md#v2_interval_set_post) | **POST** /v2/interval/set | 
-*IntervalsApi* | [**v2_interval_type_search_post**](docs/IntervalsApi.md#v2_interval_type_search_post) | **POST** /v2/interval_type/search | 
-*IntervalsApi* | [**v2_interval_update_post**](docs/IntervalsApi.md#v2_interval_update_post) | **POST** /v2/interval/update | 
-*IntervalsApi* | [**v2_intervals_delete_post**](docs/IntervalsApi.md#v2_intervals_delete_post) | **POST** /v2/intervals/delete | 
-*IntervalsApi* | [**v2_intervals_set_post**](docs/IntervalsApi.md#v2_intervals_set_post) | **POST** /v2/intervals/set | 
-*IntervalsApi* | [**v2_intervals_update_post**](docs/IntervalsApi.md#v2_intervals_update_post) | **POST** /v2/intervals/update | 
-*MachineGroupsApi* | [**v2_factory_search_post**](docs/MachineGroupsApi.md#v2_factory_search_post) | **POST** /v2/factory/search | 
-*MachineGroupsApi* | [**v2_line_search_post**](docs/MachineGroupsApi.md#v2_line_search_post) | **POST** /v2/line/search | 
-*MaintenanceWorkOrdersApi* | [**v2_maintenance_work_order_delete_post**](docs/MaintenanceWorkOrdersApi.md#v2_maintenance_work_order_delete_post) | **POST** /v2/maintenance_work_order/delete | 
-*MaintenanceWorkOrdersApi* | [**v2_maintenance_work_order_search_post**](docs/MaintenanceWorkOrdersApi.md#v2_maintenance_work_order_search_post) | **POST** /v2/maintenance_work_order/search | 
-*MaintenanceWorkOrdersApi* | [**v2_maintenance_work_order_set_post**](docs/MaintenanceWorkOrdersApi.md#v2_maintenance_work_order_set_post) | **POST** /v2/maintenance_work_order/set | 
-*MetricGroupsApi* | [**v2_metric_group_search_post**](docs/MetricGroupsApi.md#v2_metric_group_search_post) | **POST** /v2/metric_group/search | 
-*OQLApi* | [**v2_oql_query_post**](docs/OQLApi.md#v2_oql_query_post) | **POST** /v2/oql/query | 
-*ProductAttributesApi* | [**v2_product_attribute_search_post**](docs/ProductAttributesApi.md#v2_product_attribute_search_post) | **POST** /v2/product_attribute/search | 
-*ProductAttributesApi* | [**v2_product_attribute_set_post**](docs/ProductAttributesApi.md#v2_product_attribute_set_post) | **POST** /v2/product_attribute/set | 
-*ProductMappingsApi* | [**v2_product_mapping_search_post**](docs/ProductMappingsApi.md#v2_product_mapping_search_post) | **POST** /v2/product_mapping/search | 
-*ProductMappingsApi* | [**v2_product_mapping_set_post**](docs/ProductMappingsApi.md#v2_product_mapping_set_post) | **POST** /v2/product_mapping/set | 
-*ProductsApi* | [**v2_product_delete_post**](docs/ProductsApi.md#v2_product_delete_post) | **POST** /v2/product/delete | 
-*ProductsApi* | [**v2_product_search_post**](docs/ProductsApi.md#v2_product_search_post) | **POST** /v2/product/search | 
-*ProductsApi* | [**v2_product_set_post**](docs/ProductsApi.md#v2_product_set_post) | **POST** /v2/product/set | 
-*QualityTestApi* | [**v2_quality_schema_search_post**](docs/QualityTestApi.md#v2_quality_schema_search_post) | **POST** /v2/quality_schema/search | 
-*QualityTestApi* | [**v2_quality_test_delete_post**](docs/QualityTestApi.md#v2_quality_test_delete_post) | **POST** /v2/quality_test/delete | 
-*QualityTestApi* | [**v2_quality_test_search_post**](docs/QualityTestApi.md#v2_quality_test_search_post) | **POST** /v2/quality_test/search | 
-*QualityTestApi* | [**v2_quality_test_set_post**](docs/QualityTestApi.md#v2_quality_test_set_post) | **POST** /v2/quality_test/set | 
-*QualityTestApi* | [**v2_quality_tests_delete_post**](docs/QualityTestApi.md#v2_quality_tests_delete_post) | **POST** /v2/quality_tests/delete | 
-*ScrapYieldDataApi* | [**v2_scrap_yield_delete_post**](docs/ScrapYieldDataApi.md#v2_scrap_yield_delete_post) | **POST** /v2/scrap_yield/delete | 
-*ScrapYieldDataApi* | [**v2_scrap_yield_search_post**](docs/ScrapYieldDataApi.md#v2_scrap_yield_search_post) | **POST** /v2/scrap_yield/search | 
-*ScrapYieldDataApi* | [**v2_scrap_yield_set_post**](docs/ScrapYieldDataApi.md#v2_scrap_yield_set_post) | **POST** /v2/scrap_yield/set | 
-*TargetsApi* | [**v2_target_search_post**](docs/TargetsApi.md#v2_target_search_post) | **POST** /v2/target/search | 
-*TargetsApi* | [**v2_target_set_post**](docs/TargetsApi.md#v2_target_set_post) | **POST** /v2/target/set | 
+*DashboardsApi* | [**execute_dashboard**](docs/DashboardsApi.md#execute_dashboard) | **POST** /v2/dashboard/execute | Execute a dashboard
+*IntervalsApi* | [**bulk_delete_intervals**](docs/IntervalsApi.md#bulk_delete_intervals) | **POST** /v2/intervals/delete | Delete intervals in a time range
+*IntervalsApi* | [**bulk_set_intervals**](docs/IntervalsApi.md#bulk_set_intervals) | **POST** /v2/intervals/set | Create a set of intervals
+*IntervalsApi* | [**bulk_update_intervals**](docs/IntervalsApi.md#bulk_update_intervals) | **POST** /v2/intervals/update | Update a set of intervals
+*IntervalsApi* | [**delete_interval**](docs/IntervalsApi.md#delete_interval) | **POST** /v2/interval/delete | Delete an interval
+*IntervalsApi* | [**delete_interval_type**](docs/IntervalsApi.md#delete_interval_type) | **POST** /v2/interval_type/delete | Delete a custom interval type
+*IntervalsApi* | [**search_interval_types**](docs/IntervalsApi.md#search_interval_types) | **POST** /v2/interval_type/search | Search interval types
+*IntervalsApi* | [**search_intervals**](docs/IntervalsApi.md#search_intervals) | **POST** /v2/interval/search | Search intervals on a line
+*IntervalsApi* | [**set_interval**](docs/IntervalsApi.md#set_interval) | **POST** /v2/interval/set | Create or update an interval
+*IntervalsApi* | [**set_interval_type**](docs/IntervalsApi.md#set_interval_type) | **POST** /v2/interval_type/set | Create or update a custom interval type
+*IntervalsApi* | [**update_interval**](docs/IntervalsApi.md#update_interval) | **POST** /v2/interval/update | Update an interval
+*MachineGroupsApi* | [**search_factories**](docs/MachineGroupsApi.md#search_factories) | **POST** /v2/factory/search | Search factories
+*MachineGroupsApi* | [**search_lines**](docs/MachineGroupsApi.md#search_lines) | **POST** /v2/line/search | Search production lines
+*MaintenanceWorkOrdersApi* | [**delete_maintenance_work_order**](docs/MaintenanceWorkOrdersApi.md#delete_maintenance_work_order) | **POST** /v2/maintenance_work_order/delete | Delete a maintenance work order
+*MaintenanceWorkOrdersApi* | [**search_maintenance_work_orders**](docs/MaintenanceWorkOrdersApi.md#search_maintenance_work_orders) | **POST** /v2/maintenance_work_order/search | Search maintenance work orders
+*MaintenanceWorkOrdersApi* | [**set_maintenance_work_order**](docs/MaintenanceWorkOrdersApi.md#set_maintenance_work_order) | **POST** /v2/maintenance_work_order/set | Create or update a maintenance work order
+*MetricGroupsApi* | [**search_metric_groups**](docs/MetricGroupsApi.md#search_metric_groups) | **POST** /v2/metric_group/search | Search metric groups
+*OQLApi* | [**run_oql_query**](docs/OQLApi.md#run_oql_query) | **POST** /v2/oql/query | Run an OQL query
+*ProductAttributesApi* | [**search_product_attributes**](docs/ProductAttributesApi.md#search_product_attributes) | **POST** /v2/product_attribute/search | Search product attributes
+*ProductAttributesApi* | [**set_product_attribute**](docs/ProductAttributesApi.md#set_product_attribute) | **POST** /v2/product_attribute/set | Create or update a product attribute
+*ProductMappingsApi* | [**search_product_mappings**](docs/ProductMappingsApi.md#search_product_mappings) | **POST** /v2/product_mapping/search | Search product-to-line mappings
+*ProductMappingsApi* | [**set_product_mapping**](docs/ProductMappingsApi.md#set_product_mapping) | **POST** /v2/product_mapping/set | Map a product to a line
+*ProductsApi* | [**delete_product**](docs/ProductsApi.md#delete_product) | **POST** /v2/product/delete | Delete a product
+*ProductsApi* | [**search_products**](docs/ProductsApi.md#search_products) | **POST** /v2/product/search | Search products
+*ProductsApi* | [**set_product**](docs/ProductsApi.md#set_product) | **POST** /v2/product/set | Create or update a product
+*QualityTestApi* | [**bulk_delete_quality_tests**](docs/QualityTestApi.md#bulk_delete_quality_tests) | **POST** /v2/quality_tests/delete | Delete multiple quality tests
+*QualityTestApi* | [**delete_quality_test**](docs/QualityTestApi.md#delete_quality_test) | **POST** /v2/quality_test/delete | Delete a quality test
+*QualityTestApi* | [**search_quality_schemas**](docs/QualityTestApi.md#search_quality_schemas) | **POST** /v2/quality_schema/search | Search quality schemas for a factory
+*QualityTestApi* | [**search_quality_tests**](docs/QualityTestApi.md#search_quality_tests) | **POST** /v2/quality_test/search | Search quality tests
+*QualityTestApi* | [**set_quality_test**](docs/QualityTestApi.md#set_quality_test) | **POST** /v2/quality_test/set | Create or update a quality test result
+*ScrapYieldDataApi* | [**delete_scrap_yield**](docs/ScrapYieldDataApi.md#delete_scrap_yield) | **POST** /v2/scrap_yield/delete | Delete a scrap/yield record
+*ScrapYieldDataApi* | [**search_scrap_yield**](docs/ScrapYieldDataApi.md#search_scrap_yield) | **POST** /v2/scrap_yield/search | Search scrap/yield records
+*ScrapYieldDataApi* | [**set_scrap_yield**](docs/ScrapYieldDataApi.md#set_scrap_yield) | **POST** /v2/scrap_yield/set | Create or update a scrap/yield record
+*TargetsApi* | [**search_targets**](docs/TargetsApi.md#search_targets) | **POST** /v2/target/search | Search metric targets
+*TargetsApi* | [**set_target**](docs/TargetsApi.md#set_target) | **POST** /v2/target/set | Create or update a metric target
 
 
 ## Documentation For Models
 
  - [BatchMetadata](docs/BatchMetadata.md)
  - [CustomMetadata](docs/CustomMetadata.md)
+ - [DashboardColumnSpec](docs/DashboardColumnSpec.md)
+ - [DashboardExecuteFilters](docs/DashboardExecuteFilters.md)
+ - [DashboardExecuteFiltersCustomIntervals](docs/DashboardExecuteFiltersCustomIntervals.md)
+ - [DashboardExecuteFiltersStates](docs/DashboardExecuteFiltersStates.md)
+ - [DashboardExecuteFiltersStatesStateCategoryAndReasons](docs/DashboardExecuteFiltersStatesStateCategoryAndReasons.md)
+ - [DashboardExecuteRange](docs/DashboardExecuteRange.md)
+ - [DashboardExecuteRequest](docs/DashboardExecuteRequest.md)
+ - [DashboardExecuteRequestDashboard](docs/DashboardExecuteRequestDashboard.md)
+ - [DashboardExecuteResult](docs/DashboardExecuteResult.md)
+ - [DashboardExecuteResultRange](docs/DashboardExecuteResultRange.md)
  - [Factory](docs/Factory.md)
  - [GenericError](docs/GenericError.md)
  - [InlineObject](docs/InlineObject.md)
@@ -245,6 +259,7 @@ Class | Method | HTTP request | Description
  - [IntervalBulkDelete](docs/IntervalBulkDelete.md)
  - [IntervalBulkUpdate](docs/IntervalBulkUpdate.md)
  - [IntervalType](docs/IntervalType.md)
+ - [IntervalTypeSet](docs/IntervalTypeSet.md)
  - [Line](docs/Line.md)
  - [MaintenanceWorkOrder](docs/MaintenanceWorkOrder.md)
  - [Match](docs/Match.md)

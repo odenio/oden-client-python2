@@ -17,6 +17,16 @@ from __future__ import absolute_import
 # import models into model package
 from oden.models.batch_metadata import BatchMetadata
 from oden.models.custom_metadata import CustomMetadata
+from oden.models.dashboard_column_spec import DashboardColumnSpec
+from oden.models.dashboard_execute_filters import DashboardExecuteFilters
+from oden.models.dashboard_execute_filters_custom_intervals import DashboardExecuteFiltersCustomIntervals
+from oden.models.dashboard_execute_filters_states import DashboardExecuteFiltersStates
+from oden.models.dashboard_execute_filters_states_state_category_and_reasons import DashboardExecuteFiltersStatesStateCategoryAndReasons
+from oden.models.dashboard_execute_range import DashboardExecuteRange
+from oden.models.dashboard_execute_request import DashboardExecuteRequest
+from oden.models.dashboard_execute_request_dashboard import DashboardExecuteRequestDashboard
+from oden.models.dashboard_execute_result import DashboardExecuteResult
+from oden.models.dashboard_execute_result_range import DashboardExecuteResultRange
 from oden.models.factory import Factory
 from oden.models.generic_error import GenericError
 from oden.models.inline_object import InlineObject
@@ -35,6 +45,7 @@ from oden.models.interval_bulk_create import IntervalBulkCreate
 from oden.models.interval_bulk_delete import IntervalBulkDelete
 from oden.models.interval_bulk_update import IntervalBulkUpdate
 from oden.models.interval_type import IntervalType
+from oden.models.interval_type_set import IntervalTypeSet
 from oden.models.line import Line
 from oden.models.maintenance_work_order import MaintenanceWorkOrder
 from oden.models.match import Match

@@ -37,13 +37,13 @@ class MaintenanceWorkOrdersApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v2_maintenance_work_order_delete_post(self, maintenance_work_order, **kwargs):  # noqa: E501
-        """v2_maintenance_work_order_delete_post  # noqa: E501
+    def delete_maintenance_work_order(self, maintenance_work_order, **kwargs):  # noqa: E501
+        """Delete a maintenance work order  # noqa: E501
 
         Delete a Maintenance Work Order by unique identifier: - `id` OR `external_id` - `match: unique` or omit (only unique is supported)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_maintenance_work_order_delete_post(maintenance_work_order, async_req=True)
+        >>> thread = api.delete_maintenance_work_order(maintenance_work_order, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -60,15 +60,15 @@ class MaintenanceWorkOrdersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_maintenance_work_order_delete_post_with_http_info(maintenance_work_order, **kwargs)  # noqa: E501
+        return self.delete_maintenance_work_order_with_http_info(maintenance_work_order, **kwargs)  # noqa: E501
 
-    def v2_maintenance_work_order_delete_post_with_http_info(self, maintenance_work_order, **kwargs):  # noqa: E501
-        """v2_maintenance_work_order_delete_post  # noqa: E501
+    def delete_maintenance_work_order_with_http_info(self, maintenance_work_order, **kwargs):  # noqa: E501
+        """Delete a maintenance work order  # noqa: E501
 
         Delete a Maintenance Work Order by unique identifier: - `id` OR `external_id` - `match: unique` or omit (only unique is supported)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_maintenance_work_order_delete_post_with_http_info(maintenance_work_order, async_req=True)
+        >>> thread = api.delete_maintenance_work_order_with_http_info(maintenance_work_order, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -105,14 +105,14 @@ class MaintenanceWorkOrdersApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_maintenance_work_order_delete_post" % key
+                    " to method delete_maintenance_work_order" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'maintenance_work_order' is set
         if self.api_client.client_side_validation and ('maintenance_work_order' not in local_var_params or  # noqa: E501
                                                         local_var_params['maintenance_work_order'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `maintenance_work_order` when calling `v2_maintenance_work_order_delete_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `maintenance_work_order` when calling `delete_maintenance_work_order`")  # noqa: E501
 
         collection_formats = {}
 
@@ -155,13 +155,13 @@ class MaintenanceWorkOrdersApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_maintenance_work_order_search_post(self, inline_object4, **kwargs):  # noqa: E501
-        """v2_maintenance_work_order_search_post  # noqa: E501
+    def search_maintenance_work_orders(self, inline_object4, **kwargs):  # noqa: E501
+        """Search maintenance work orders  # noqa: E501
 
         Search for Maintenance Work Orders by: - `id` - `external_id` - `line_id` with required `start_time` and `end_time` filters   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_maintenance_work_order_search_post(inline_object4, async_req=True)
+        >>> thread = api.search_maintenance_work_orders(inline_object4, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -178,15 +178,15 @@ class MaintenanceWorkOrdersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_maintenance_work_order_search_post_with_http_info(inline_object4, **kwargs)  # noqa: E501
+        return self.search_maintenance_work_orders_with_http_info(inline_object4, **kwargs)  # noqa: E501
 
-    def v2_maintenance_work_order_search_post_with_http_info(self, inline_object4, **kwargs):  # noqa: E501
-        """v2_maintenance_work_order_search_post  # noqa: E501
+    def search_maintenance_work_orders_with_http_info(self, inline_object4, **kwargs):  # noqa: E501
+        """Search maintenance work orders  # noqa: E501
 
         Search for Maintenance Work Orders by: - `id` - `external_id` - `line_id` with required `start_time` and `end_time` filters   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_maintenance_work_order_search_post_with_http_info(inline_object4, async_req=True)
+        >>> thread = api.search_maintenance_work_orders_with_http_info(inline_object4, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -223,14 +223,14 @@ class MaintenanceWorkOrdersApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_maintenance_work_order_search_post" % key
+                    " to method search_maintenance_work_orders" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'inline_object4' is set
         if self.api_client.client_side_validation and ('inline_object4' not in local_var_params or  # noqa: E501
                                                         local_var_params['inline_object4'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object4` when calling `v2_maintenance_work_order_search_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object4` when calling `search_maintenance_work_orders`")  # noqa: E501
 
         collection_formats = {}
 
@@ -273,13 +273,13 @@ class MaintenanceWorkOrdersApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_maintenance_work_order_set_post(self, maintenance_work_order, **kwargs):  # noqa: E501
-        """v2_maintenance_work_order_set_post  # noqa: E501
+    def set_maintenance_work_order(self, maintenance_work_order, **kwargs):  # noqa: E501
+        """Create or update a maintenance work order  # noqa: E501
 
         Create or update a Maintenance Work Order.  To **create** a new Maintenance Work Order: - Include `name` and `line`, `external_id`, `started_at` (required) - Omit `id` field - include `completed_at`, `description`, `metadata`  To **update** an existing Maintenance Work Order: - Include the `id` of the existing work order - Include any fields to update  NOTE: Any fields not included in an update request will be left unchanged.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_maintenance_work_order_set_post(maintenance_work_order, async_req=True)
+        >>> thread = api.set_maintenance_work_order(maintenance_work_order, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -296,15 +296,15 @@ class MaintenanceWorkOrdersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_maintenance_work_order_set_post_with_http_info(maintenance_work_order, **kwargs)  # noqa: E501
+        return self.set_maintenance_work_order_with_http_info(maintenance_work_order, **kwargs)  # noqa: E501
 
-    def v2_maintenance_work_order_set_post_with_http_info(self, maintenance_work_order, **kwargs):  # noqa: E501
-        """v2_maintenance_work_order_set_post  # noqa: E501
+    def set_maintenance_work_order_with_http_info(self, maintenance_work_order, **kwargs):  # noqa: E501
+        """Create or update a maintenance work order  # noqa: E501
 
         Create or update a Maintenance Work Order.  To **create** a new Maintenance Work Order: - Include `name` and `line`, `external_id`, `started_at` (required) - Omit `id` field - include `completed_at`, `description`, `metadata`  To **update** an existing Maintenance Work Order: - Include the `id` of the existing work order - Include any fields to update  NOTE: Any fields not included in an update request will be left unchanged.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_maintenance_work_order_set_post_with_http_info(maintenance_work_order, async_req=True)
+        >>> thread = api.set_maintenance_work_order_with_http_info(maintenance_work_order, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -341,14 +341,14 @@ class MaintenanceWorkOrdersApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_maintenance_work_order_set_post" % key
+                    " to method set_maintenance_work_order" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'maintenance_work_order' is set
         if self.api_client.client_side_validation and ('maintenance_work_order' not in local_var_params or  # noqa: E501
                                                         local_var_params['maintenance_work_order'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `maintenance_work_order` when calling `v2_maintenance_work_order_set_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `maintenance_work_order` when calling `set_maintenance_work_order`")  # noqa: E501
 
         collection_formats = {}
 

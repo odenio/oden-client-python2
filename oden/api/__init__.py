@@ -3,6 +3,7 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from oden.api.dashboards_api import DashboardsApi
 from oden.api.intervals_api import IntervalsApi
 from oden.api.machine_groups_api import MachineGroupsApi
 from oden.api.maintenance_work_orders_api import MaintenanceWorkOrdersApi

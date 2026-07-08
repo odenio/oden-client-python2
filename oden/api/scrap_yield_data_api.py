@@ -37,13 +37,13 @@ class ScrapYieldDataApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v2_scrap_yield_delete_post(self, inline_object2, **kwargs):  # noqa: E501
-        """v2_scrap_yield_delete_post  # noqa: E501
+    def delete_scrap_yield(self, inline_object2, **kwargs):  # noqa: E501
+        """Delete a scrap/yield record  # noqa: E501
 
         Deletes Scrap Yield record by ID and line   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_scrap_yield_delete_post(inline_object2, async_req=True)
+        >>> thread = api.delete_scrap_yield(inline_object2, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -60,15 +60,15 @@ class ScrapYieldDataApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_scrap_yield_delete_post_with_http_info(inline_object2, **kwargs)  # noqa: E501
+        return self.delete_scrap_yield_with_http_info(inline_object2, **kwargs)  # noqa: E501
 
-    def v2_scrap_yield_delete_post_with_http_info(self, inline_object2, **kwargs):  # noqa: E501
-        """v2_scrap_yield_delete_post  # noqa: E501
+    def delete_scrap_yield_with_http_info(self, inline_object2, **kwargs):  # noqa: E501
+        """Delete a scrap/yield record  # noqa: E501
 
         Deletes Scrap Yield record by ID and line   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_scrap_yield_delete_post_with_http_info(inline_object2, async_req=True)
+        >>> thread = api.delete_scrap_yield_with_http_info(inline_object2, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -105,14 +105,14 @@ class ScrapYieldDataApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_scrap_yield_delete_post" % key
+                    " to method delete_scrap_yield" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'inline_object2' is set
         if self.api_client.client_side_validation and ('inline_object2' not in local_var_params or  # noqa: E501
                                                         local_var_params['inline_object2'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object2` when calling `v2_scrap_yield_delete_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object2` when calling `delete_scrap_yield`")  # noqa: E501
 
         collection_formats = {}
 
@@ -155,13 +155,13 @@ class ScrapYieldDataApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_scrap_yield_search_post(self, inline_object, **kwargs):  # noqa: E501
-        """v2_scrap_yield_search_post  # noqa: E501
+    def search_scrap_yield(self, inline_object, **kwargs):  # noqa: E501
+        """Search scrap/yield records  # noqa: E501
 
         Searches for scrap/yield records for a given Interval   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_scrap_yield_search_post(inline_object, async_req=True)
+        >>> thread = api.search_scrap_yield(inline_object, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -178,15 +178,15 @@ class ScrapYieldDataApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_scrap_yield_search_post_with_http_info(inline_object, **kwargs)  # noqa: E501
+        return self.search_scrap_yield_with_http_info(inline_object, **kwargs)  # noqa: E501
 
-    def v2_scrap_yield_search_post_with_http_info(self, inline_object, **kwargs):  # noqa: E501
-        """v2_scrap_yield_search_post  # noqa: E501
+    def search_scrap_yield_with_http_info(self, inline_object, **kwargs):  # noqa: E501
+        """Search scrap/yield records  # noqa: E501
 
         Searches for scrap/yield records for a given Interval   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_scrap_yield_search_post_with_http_info(inline_object, async_req=True)
+        >>> thread = api.search_scrap_yield_with_http_info(inline_object, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -223,14 +223,14 @@ class ScrapYieldDataApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_scrap_yield_search_post" % key
+                    " to method search_scrap_yield" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'inline_object' is set
         if self.api_client.client_side_validation and ('inline_object' not in local_var_params or  # noqa: E501
                                                         local_var_params['inline_object'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object` when calling `v2_scrap_yield_search_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object` when calling `search_scrap_yield`")  # noqa: E501
 
         collection_formats = {}
 
@@ -273,13 +273,13 @@ class ScrapYieldDataApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_scrap_yield_set_post(self, inline_object1, **kwargs):  # noqa: E501
-        """v2_scrap_yield_set_post  # noqa: E501
+    def set_scrap_yield(self, inline_object1, **kwargs):  # noqa: E501
+        """Create or update a scrap/yield record  # noqa: E501
 
         Uploads scrap or yield raw data.  Notes:  - If `id` is provided the existing Scrap/Yield record will be updated.  - If `id` is omitted a new Scrap/Yield record will be created.  - The scrap yield for an interval is an aggregate of all scrap yield raw data records associated with that interval     - Therefore, multiple scrap yield records can exist for a single interval, each contributing to the \"aggregate\" (i.e. sum total) scrap/yield of that interval  - Changing an aggregate can be done by either adding another record with an offset, or updating an existing record.     - Example: If you have 3 scrap records in an interval: 50 50 50 = 150 and want to make the aggregate 100 for a given interval, either update one of the existing scrap records from 50 -> 0, or add a new one with value -50  - Duplicate keys should be avoided, see Schema docs above for details.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_scrap_yield_set_post(inline_object1, async_req=True)
+        >>> thread = api.set_scrap_yield(inline_object1, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -297,15 +297,15 @@ class ScrapYieldDataApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_scrap_yield_set_post_with_http_info(inline_object1, **kwargs)  # noqa: E501
+        return self.set_scrap_yield_with_http_info(inline_object1, **kwargs)  # noqa: E501
 
-    def v2_scrap_yield_set_post_with_http_info(self, inline_object1, **kwargs):  # noqa: E501
-        """v2_scrap_yield_set_post  # noqa: E501
+    def set_scrap_yield_with_http_info(self, inline_object1, **kwargs):  # noqa: E501
+        """Create or update a scrap/yield record  # noqa: E501
 
         Uploads scrap or yield raw data.  Notes:  - If `id` is provided the existing Scrap/Yield record will be updated.  - If `id` is omitted a new Scrap/Yield record will be created.  - The scrap yield for an interval is an aggregate of all scrap yield raw data records associated with that interval     - Therefore, multiple scrap yield records can exist for a single interval, each contributing to the \"aggregate\" (i.e. sum total) scrap/yield of that interval  - Changing an aggregate can be done by either adding another record with an offset, or updating an existing record.     - Example: If you have 3 scrap records in an interval: 50 50 50 = 150 and want to make the aggregate 100 for a given interval, either update one of the existing scrap records from 50 -> 0, or add a new one with value -50  - Duplicate keys should be avoided, see Schema docs above for details.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_scrap_yield_set_post_with_http_info(inline_object1, async_req=True)
+        >>> thread = api.set_scrap_yield_with_http_info(inline_object1, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -344,14 +344,14 @@ class ScrapYieldDataApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_scrap_yield_set_post" % key
+                    " to method set_scrap_yield" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'inline_object1' is set
         if self.api_client.client_side_validation and ('inline_object1' not in local_var_params or  # noqa: E501
                                                         local_var_params['inline_object1'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object1` when calling `v2_scrap_yield_set_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object1` when calling `set_scrap_yield`")  # noqa: E501
 
         collection_formats = {}
 

@@ -37,13 +37,13 @@ class ProductsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v2_product_delete_post(self, product, **kwargs):  # noqa: E501
-        """v2_product_delete_post  # noqa: E501
+    def delete_product(self, product, **kwargs):  # noqa: E501
+        """Delete a product  # noqa: E501
 
         Delete a Product by unique identifier: - `name` - `match: unique` or omit  OR  - `id` - `match: unique` or omit  A deleted Product will not show up in Product searches or dropdowns, but associated Intervals will still exist.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_delete_post(product, async_req=True)
+        >>> thread = api.delete_product(product, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -60,15 +60,15 @@ class ProductsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_product_delete_post_with_http_info(product, **kwargs)  # noqa: E501
+        return self.delete_product_with_http_info(product, **kwargs)  # noqa: E501
 
-    def v2_product_delete_post_with_http_info(self, product, **kwargs):  # noqa: E501
-        """v2_product_delete_post  # noqa: E501
+    def delete_product_with_http_info(self, product, **kwargs):  # noqa: E501
+        """Delete a product  # noqa: E501
 
         Delete a Product by unique identifier: - `name` - `match: unique` or omit  OR  - `id` - `match: unique` or omit  A deleted Product will not show up in Product searches or dropdowns, but associated Intervals will still exist.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_delete_post_with_http_info(product, async_req=True)
+        >>> thread = api.delete_product_with_http_info(product, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -105,14 +105,14 @@ class ProductsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_product_delete_post" % key
+                    " to method delete_product" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'product' is set
         if self.api_client.client_side_validation and ('product' not in local_var_params or  # noqa: E501
                                                         local_var_params['product'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `product` when calling `v2_product_delete_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `product` when calling `delete_product`")  # noqa: E501
 
         collection_formats = {}
 
@@ -155,13 +155,13 @@ class ProductsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_product_search_post(self, product, **kwargs):  # noqa: E501
-        """v2_product_search_post  # noqa: E501
+    def search_products(self, product, **kwargs):  # noqa: E501
+        """Search products  # noqa: E501
 
         Search for specific Product: - `name` - `match: unique` or omit  OR  - `id` - `match: unique` or omit  May be used to confirm a Product exists or to get a Product `id` if `name` is known, or `name` if `id` is known.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_search_post(product, async_req=True)
+        >>> thread = api.search_products(product, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -178,15 +178,15 @@ class ProductsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_product_search_post_with_http_info(product, **kwargs)  # noqa: E501
+        return self.search_products_with_http_info(product, **kwargs)  # noqa: E501
 
-    def v2_product_search_post_with_http_info(self, product, **kwargs):  # noqa: E501
-        """v2_product_search_post  # noqa: E501
+    def search_products_with_http_info(self, product, **kwargs):  # noqa: E501
+        """Search products  # noqa: E501
 
         Search for specific Product: - `name` - `match: unique` or omit  OR  - `id` - `match: unique` or omit  May be used to confirm a Product exists or to get a Product `id` if `name` is known, or `name` if `id` is known.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_search_post_with_http_info(product, async_req=True)
+        >>> thread = api.search_products_with_http_info(product, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -223,14 +223,14 @@ class ProductsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_product_search_post" % key
+                    " to method search_products" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'product' is set
         if self.api_client.client_side_validation and ('product' not in local_var_params or  # noqa: E501
                                                         local_var_params['product'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `product` when calling `v2_product_search_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `product` when calling `search_products`")  # noqa: E501
 
         collection_formats = {}
 
@@ -273,13 +273,13 @@ class ProductsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v2_product_set_post(self, product, **kwargs):  # noqa: E501
-        """v2_product_set_post  # noqa: E501
+    def set_product(self, product, **kwargs):  # noqa: E501
+        """Create or update a product  # noqa: E501
 
         To **create** a new Product, include `name`, and omit `id` field.  To **update** an existing Product, include the `id` of the existing product the updated `name`.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_set_post(product, async_req=True)
+        >>> thread = api.set_product(product, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -296,15 +296,15 @@ class ProductsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v2_product_set_post_with_http_info(product, **kwargs)  # noqa: E501
+        return self.set_product_with_http_info(product, **kwargs)  # noqa: E501
 
-    def v2_product_set_post_with_http_info(self, product, **kwargs):  # noqa: E501
-        """v2_product_set_post  # noqa: E501
+    def set_product_with_http_info(self, product, **kwargs):  # noqa: E501
+        """Create or update a product  # noqa: E501
 
         To **create** a new Product, include `name`, and omit `id` field.  To **update** an existing Product, include the `id` of the existing product the updated `name`.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v2_product_set_post_with_http_info(product, async_req=True)
+        >>> thread = api.set_product_with_http_info(product, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -341,14 +341,14 @@ class ProductsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v2_product_set_post" % key
+                    " to method set_product" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'product' is set
         if self.api_client.client_side_validation and ('product' not in local_var_params or  # noqa: E501
                                                         local_var_params['product'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `product` when calling `v2_product_set_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `product` when calling `set_product`")  # noqa: E501
 
         collection_formats = {}
 
