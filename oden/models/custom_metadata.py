@@ -50,7 +50,8 @@ class CustomMetadata(object):
         self._metadata_type = None
         self.discriminator = None
 
-        self.metadata_type = metadata_type
+        if metadata_type is not None:
+            self.metadata_type = metadata_type
 
     @property
     def metadata_type(self):
@@ -70,8 +71,6 @@ class CustomMetadata(object):
         :param metadata_type: The metadata_type of this CustomMetadata.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and metadata_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `metadata_type`, must not be `None`")  # noqa: E501
         allowed_values = ["custom"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and metadata_type not in allowed_values:  # noqa: E501
             raise ValueError(

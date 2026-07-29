@@ -4,7 +4,7 @@ Metadata associated with a state interval
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metadata_type** | **str** |  | [readonly] 
+**metadata_type** | **str** |  | [optional] [readonly] 
 **reason** | [**StateReason**](StateReason.md) |  | [optional] 
 **comment** | **str** |  | [optional] 
 **category** | [**StateCategory**](StateCategory.md) |  | [optional] 

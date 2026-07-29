@@ -56,7 +56,8 @@ class RunMetadata(object):
         self._target = None
         self.discriminator = None
 
-        self.metadata_type = metadata_type
+        if metadata_type is not None:
+            self.metadata_type = metadata_type
         if product is not None:
             self.product = product
         if target is not None:
@@ -80,8 +81,6 @@ class RunMetadata(object):
         :param metadata_type: The metadata_type of this RunMetadata.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and metadata_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `metadata_type`, must not be `None`")  # noqa: E501
         allowed_values = ["run"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and metadata_type not in allowed_values:  # noqa: E501
             raise ValueError(

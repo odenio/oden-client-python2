@@ -59,7 +59,8 @@ class StateMetadata(object):
         self._category = None
         self.discriminator = None
 
-        self.metadata_type = metadata_type
+        if metadata_type is not None:
+            self.metadata_type = metadata_type
         if reason is not None:
             self.reason = reason
         if comment is not None:
@@ -85,8 +86,6 @@ class StateMetadata(object):
         :param metadata_type: The metadata_type of this StateMetadata.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and metadata_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `metadata_type`, must not be `None`")  # noqa: E501
         allowed_values = ["state"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and metadata_type not in allowed_values:  # noqa: E501
             raise ValueError(

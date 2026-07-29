@@ -53,7 +53,8 @@ class BatchMetadata(object):
         self._run = None
         self.discriminator = None
 
-        self.metadata_type = metadata_type
+        if metadata_type is not None:
+            self.metadata_type = metadata_type
         if run is not None:
             self.run = run
 
@@ -75,8 +76,6 @@ class BatchMetadata(object):
         :param metadata_type: The metadata_type of this BatchMetadata.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and metadata_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `metadata_type`, must not be `None`")  # noqa: E501
         allowed_values = ["batch"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and metadata_type not in allowed_values:  # noqa: E501
             raise ValueError(
