@@ -223,6 +223,10 @@ Class | Method | HTTP request | Description
 *ScrapYieldDataApi* | [**delete_scrap_yield**](docs/ScrapYieldDataApi.md#delete_scrap_yield) | **POST** /v2/scrap_yield/delete | Delete a scrap/yield record
 *ScrapYieldDataApi* | [**search_scrap_yield**](docs/ScrapYieldDataApi.md#search_scrap_yield) | **POST** /v2/scrap_yield/search | Search scrap/yield records
 *ScrapYieldDataApi* | [**set_scrap_yield**](docs/ScrapYieldDataApi.md#set_scrap_yield) | **POST** /v2/scrap_yield/set | Create or update a scrap/yield record
+*StatesApi* | [**search_state_categories**](docs/StatesApi.md#search_state_categories) | **POST** /v2/state_category/search | Search state categories
+*StatesApi* | [**search_state_reasons**](docs/StatesApi.md#search_state_reasons) | **POST** /v2/state_reason/search | Search state reasons on one or more lines
+*StatesApi* | [**set_state_category**](docs/StatesApi.md#set_state_category) | **POST** /v2/state_category/set | Create or update a state category
+*StatesApi* | [**set_state_reasons**](docs/StatesApi.md#set_state_reasons) | **POST** /v2/state_reason/set | Create a state reason on one or more lines
 *TargetsApi* | [**search_targets**](docs/TargetsApi.md#search_targets) | **POST** /v2/target/search | Search metric targets
 *TargetsApi* | [**set_target**](docs/TargetsApi.md#set_target) | **POST** /v2/target/set | Create or update a metric target
 
@@ -274,8 +278,15 @@ Class | Method | HTTP request | Description
  - [ScrapYieldData](docs/ScrapYieldData.md)
  - [ScrapYieldSchema](docs/ScrapYieldSchema.md)
  - [StateCategory](docs/StateCategory.md)
+ - [StateCategoryDetail](docs/StateCategoryDetail.md)
+ - [StateCategorySearch](docs/StateCategorySearch.md)
+ - [StateCategorySet](docs/StateCategorySet.md)
+ - [StateCategoryType](docs/StateCategoryType.md)
  - [StateMetadata](docs/StateMetadata.md)
  - [StateReason](docs/StateReason.md)
+ - [StateReasonDetail](docs/StateReasonDetail.md)
+ - [StateReasonSearch](docs/StateReasonSearch.md)
+ - [StateReasonSet](docs/StateReasonSet.md)
  - [Target](docs/Target.md)
  - [Unit](docs/Unit.md)
 

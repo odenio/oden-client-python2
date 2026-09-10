@@ -1,6 +1,5 @@
 # coding: utf-8
 
-# flake8: noqa
 """
     Oden API
 
@@ -14,60 +13,50 @@
 
 from __future__ import absolute_import
 
-# import models into model package
-from oden.models.batch_metadata import BatchMetadata
-from oden.models.custom_metadata import CustomMetadata
-from oden.models.dashboard_column_spec import DashboardColumnSpec
-from oden.models.dashboard_execute_filters import DashboardExecuteFilters
-from oden.models.dashboard_execute_filters_custom_intervals import DashboardExecuteFiltersCustomIntervals
-from oden.models.dashboard_execute_filters_states import DashboardExecuteFiltersStates
-from oden.models.dashboard_execute_filters_states_state_category_and_reasons import DashboardExecuteFiltersStatesStateCategoryAndReasons
-from oden.models.dashboard_execute_range import DashboardExecuteRange
-from oden.models.dashboard_execute_request import DashboardExecuteRequest
-from oden.models.dashboard_execute_request_dashboard import DashboardExecuteRequestDashboard
-from oden.models.dashboard_execute_result import DashboardExecuteResult
-from oden.models.dashboard_execute_result_range import DashboardExecuteResultRange
-from oden.models.factory import Factory
-from oden.models.generic_error import GenericError
-from oden.models.inline_object import InlineObject
-from oden.models.inline_object1 import InlineObject1
-from oden.models.inline_object2 import InlineObject2
-from oden.models.inline_object3 import InlineObject3
-from oden.models.inline_object4 import InlineObject4
-from oden.models.inline_response200 import InlineResponse200
-from oden.models.inline_response2001 import InlineResponse2001
-from oden.models.inline_response200_failed_intervals import InlineResponse200FailedIntervals
-from oden.models.inline_response400 import InlineResponse400
-from oden.models.inline_response409 import InlineResponse409
-from oden.models.inline_response500 import InlineResponse500
-from oden.models.interval import Interval
-from oden.models.interval_bulk_create import IntervalBulkCreate
-from oden.models.interval_bulk_delete import IntervalBulkDelete
-from oden.models.interval_bulk_update import IntervalBulkUpdate
-from oden.models.interval_type import IntervalType
-from oden.models.interval_type_set import IntervalTypeSet
-from oden.models.line import Line
-from oden.models.maintenance_work_order import MaintenanceWorkOrder
-from oden.models.match import Match
-from oden.models.metric_group import MetricGroup
-from oden.models.oql_query import OQLQuery
-from oden.models.product import Product
-from oden.models.product_attribute import ProductAttribute
-from oden.models.product_mapping import ProductMapping
-from oden.models.quality_schema import QualitySchema
-from oden.models.quality_test import QualityTest
-from oden.models.run_metadata import RunMetadata
-from oden.models.scrap_yield_data import ScrapYieldData
-from oden.models.scrap_yield_schema import ScrapYieldSchema
-from oden.models.state_category import StateCategory
-from oden.models.state_category_detail import StateCategoryDetail
-from oden.models.state_category_search import StateCategorySearch
-from oden.models.state_category_set import StateCategorySet
-from oden.models.state_category_type import StateCategoryType
-from oden.models.state_metadata import StateMetadata
-from oden.models.state_reason import StateReason
-from oden.models.state_reason_detail import StateReasonDetail
-from oden.models.state_reason_search import StateReasonSearch
-from oden.models.state_reason_set import StateReasonSet
-from oden.models.target import Target
-from oden.models.unit import Unit
+import unittest
+
+import oden
+from oden.api.states_api import StatesApi  # noqa: E501
+from oden.rest import ApiException
+
+
+class TestStatesApi(unittest.TestCase):
+    """StatesApi unit test stubs"""
+
+    def setUp(self):
+        self.api = oden.api.states_api.StatesApi()  # noqa: E501
+
+    def tearDown(self):
+        pass
+
+    def test_search_state_categories(self):
+        """Test case for search_state_categories
+
+        Search state categories  # noqa: E501
+        """
+        pass
+
+    def test_search_state_reasons(self):
+        """Test case for search_state_reasons
+
+        Search state reasons on one or more lines  # noqa: E501
+        """
+        pass
+
+    def test_set_state_category(self):
+        """Test case for set_state_category
+
+        Create or update a state category  # noqa: E501
+        """
+        pass
+
+    def test_set_state_reasons(self):
+        """Test case for set_state_reasons
+
+        Create a state reason on one or more lines  # noqa: E501
+        """
+        pass
+
+
+if __name__ == '__main__':
+    unittest.main()

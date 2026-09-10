@@ -29,6 +29,7 @@ from oden.api.product_mappings_api import ProductMappingsApi
 from oden.api.products_api import ProductsApi
 from oden.api.quality_test_api import QualityTestApi
 from oden.api.scrap_yield_data_api import ScrapYieldDataApi
+from oden.api.states_api import StatesApi
 from oden.api.targets_api import TargetsApi
 
 # import ApiClient
@@ -85,8 +86,15 @@ from oden.models.run_metadata import RunMetadata
 from oden.models.scrap_yield_data import ScrapYieldData
 from oden.models.scrap_yield_schema import ScrapYieldSchema
 from oden.models.state_category import StateCategory
+from oden.models.state_category_detail import StateCategoryDetail
+from oden.models.state_category_search import StateCategorySearch
+from oden.models.state_category_set import StateCategorySet
+from oden.models.state_category_type import StateCategoryType
 from oden.models.state_metadata import StateMetadata
 from oden.models.state_reason import StateReason
+from oden.models.state_reason_detail import StateReasonDetail
+from oden.models.state_reason_search import StateReasonSearch
+from oden.models.state_reason_set import StateReasonSet
 from oden.models.target import Target
 from oden.models.unit import Unit
 

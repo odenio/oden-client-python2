@@ -14,4 +14,5 @@ from oden.api.product_mappings_api import ProductMappingsApi
 from oden.api.products_api import ProductsApi
 from oden.api.quality_test_api import QualityTestApi
 from oden.api.scrap_yield_data_api import ScrapYieldDataApi
+from oden.api.states_api import StatesApi
 from oden.api.targets_api import TargetsApi
