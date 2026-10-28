@@ -63,7 +63,6 @@ from oden.models.inline_object4 import InlineObject4
 from oden.models.inline_response200 import InlineResponse200
 from oden.models.inline_response2001 import InlineResponse2001
 from oden.models.inline_response200_failed_intervals import InlineResponse200FailedIntervals
-from oden.models.inline_response400 import InlineResponse400
 from oden.models.inline_response409 import InlineResponse409
 from oden.models.inline_response500 import InlineResponse500
 from oden.models.interval import Interval
@@ -77,6 +76,7 @@ from oden.models.maintenance_work_order import MaintenanceWorkOrder
 from oden.models.match import Match
 from oden.models.metric_group import MetricGroup
 from oden.models.oql_query import OQLQuery
+from oden.models.parameter_error import ParameterError
 from oden.models.product import Product
 from oden.models.product_attribute import ProductAttribute
 from oden.models.product_mapping import ProductMapping

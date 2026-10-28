@@ -29,21 +29,24 @@ class TestProductsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_v2_product_delete_post(self):
-        """Test case for v2_product_delete_post
+    def test_delete_product(self):
+        """Test case for delete_product
 
+        Delete a product  # noqa: E501
         """
         pass
 
-    def test_v2_product_search_post(self):
-        """Test case for v2_product_search_post
+    def test_search_products(self):
+        """Test case for search_products
 
+        Search products  # noqa: E501
         """
         pass
 
-    def test_v2_product_set_post(self):
-        """Test case for v2_product_set_post
+    def test_set_product(self):
+        """Test case for set_product
 
+        Create or update a product  # noqa: E501
         """
         pass
 

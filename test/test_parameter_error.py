@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import oden
-from oden.models.inline_response400 import InlineResponse400  # noqa: E501
+from oden.models.parameter_error import ParameterError  # noqa: E501
 from oden.rest import ApiException
 
-class TestInlineResponse400(unittest.TestCase):
-    """InlineResponse400 unit test stubs"""
+class TestParameterError(unittest.TestCase):
+    """ParameterError unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,26 +30,26 @@ class TestInlineResponse400(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test InlineResponse400
+        """Test ParameterError
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = oden.models.inline_response400.InlineResponse400()  # noqa: E501
+        # model = oden.models.parameter_error.ParameterError()  # noqa: E501
         if include_optional :
-            return InlineResponse400(
+            return ParameterError(
                 error = '0', 
                 name = '0', 
                 retryable = True
             )
         else :
-            return InlineResponse400(
+            return ParameterError(
                 error = '0',
                 name = '0',
                 retryable = True,
         )
 
-    def testInlineResponse400(self):
-        """Test InlineResponse400"""
+    def testParameterError(self):
+        """Test ParameterError"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -29,15 +29,17 @@ class TestTargetsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_v2_target_search_post(self):
-        """Test case for v2_target_search_post
+    def test_search_targets(self):
+        """Test case for search_targets
 
+        Search metric targets  # noqa: E501
         """
         pass
 
-    def test_v2_target_set_post(self):
-        """Test case for v2_target_set_post
+    def test_set_target(self):
+        """Test case for set_target
 
+        Create or update a metric target  # noqa: E501
         """
         pass
 

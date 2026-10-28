@@ -1,4 +1,4 @@
-# InlineResponse400
+# ParameterError
 
 ## Properties
 Name | Type | Description | Notes

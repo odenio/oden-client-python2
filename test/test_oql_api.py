@@ -29,9 +29,10 @@ class TestOQLApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_v2_oql_query_post(self):
-        """Test case for v2_oql_query_post
+    def test_run_oql_query(self):
+        """Test case for run_oql_query
 
+        Run an OQL query  # noqa: E501
         """
         pass
 

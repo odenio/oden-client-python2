@@ -29,33 +29,38 @@ class TestQualityTestApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_v2_quality_schema_search_post(self):
-        """Test case for v2_quality_schema_search_post
+    def test_bulk_delete_quality_tests(self):
+        """Test case for bulk_delete_quality_tests
 
+        Delete multiple quality tests  # noqa: E501
         """
         pass
 
-    def test_v2_quality_test_delete_post(self):
-        """Test case for v2_quality_test_delete_post
+    def test_delete_quality_test(self):
+        """Test case for delete_quality_test
 
+        Delete a quality test  # noqa: E501
         """
         pass
 
-    def test_v2_quality_test_search_post(self):
-        """Test case for v2_quality_test_search_post
+    def test_search_quality_schemas(self):
+        """Test case for search_quality_schemas
 
+        Search quality schemas for a factory  # noqa: E501
         """
         pass
 
-    def test_v2_quality_test_set_post(self):
-        """Test case for v2_quality_test_set_post
+    def test_search_quality_tests(self):
+        """Test case for search_quality_tests
 
+        Search quality tests  # noqa: E501
         """
         pass
 
-    def test_v2_quality_tests_delete_post(self):
-        """Test case for v2_quality_tests_delete_post
+    def test_set_quality_test(self):
+        """Test case for set_quality_test
 
+        Create or update a quality test result  # noqa: E501
         """
         pass
 
